@@ -1,4 +1,4 @@
-// Бургер меню
+//работал эрлан 
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 
@@ -7,7 +7,6 @@ burger.addEventListener('click', () => {
     nav.classList.toggle('open');
 });
 
-// Закрытие меню при клике на ссылку
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         burger.classList.remove('active');
@@ -15,13 +14,74 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// Табы
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+});
+
+// Модалка
+const modal = document.getElementById('modal');
+const modalClose = document.getElementById('modal-close');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalPrice = document.getElementById('modal-price');
+const modalAdd = document.getElementById('modal-add');
+
+function openModal(card) {
+    modalImg.src = card.dataset.img;
+    modalTitle.textContent = card.dataset.name;
+    modalDesc.textContent = card.dataset.desc;
+    modalPrice.textContent = card.dataset.price;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Клик по карточке
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        // Если кликнули на кнопку "В корзину" — не открываем модалку
+        if (e.target.classList.contains('add-to-cart')) return;
+        openModal(card);
+    });
+});
+
+// Закрытие
+modalClose.addEventListener('click', closeModal);
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
 // Кнопки "В корзину"
 document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation(); // чтобы не открывалась модалка
+        
         this.textContent = 'Добавлено ✓';
         this.classList.add('added');
 
-        // Через 2 секунды возвращаем обратно
         setTimeout(() => {
             this.textContent = 'В корзину';
             this.classList.remove('added');
