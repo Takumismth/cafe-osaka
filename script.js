@@ -1,4 +1,5 @@
 //работал эрлан 
+// Бургер меню
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 
@@ -35,7 +36,6 @@ const modalImg = document.getElementById('modal-img');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
 const modalPrice = document.getElementById('modal-price');
-const modalAdd = document.getElementById('modal-add');
 
 function openModal(card) {
     modalImg.src = card.dataset.img;
@@ -55,7 +55,6 @@ function closeModal() {
 // Клик по карточке
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', (e) => {
-        // Если кликнули на кнопку "В корзину" — не открываем модалку
         if (e.target.classList.contains('add-to-cart')) return;
         openModal(card);
     });
@@ -77,7 +76,7 @@ document.addEventListener('keydown', (e) => {
 // Кнопки "В корзину"
 document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', function(e) {
-        e.stopPropagation(); // чтобы не открывалась модалка
+        e.stopPropagation();
         
         this.textContent = 'Добавлено ✓';
         this.classList.add('added');
