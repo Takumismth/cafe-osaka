@@ -1,4 +1,4 @@
- /*илим работал-*/
+/*работал илим*/
 * {
     margin: 0;
     padding: 0;
@@ -282,6 +282,7 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(92, 64, 51, 0.08);
     transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -433,78 +434,6 @@ body {
     opacity: 0.7;
 }
 
-/* ===== Адаптив ===== */
-@media (max-width: 900px) {
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content h1 {
-        font-size: 42px;
-    }
-}
-
-@media (max-width: 600px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .burger {
-        display: flex;
-    }
-
-    .nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #f7efe4;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        padding: 20px 0;
-        transform: translateY(-120%);
-        opacity: 0;
-        transition: all 0.3s ease;
-        border-bottom: 1px solid rgba(92, 64, 51, 0.1);
-    }
-
-    .nav.open {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    .nav-link {
-        padding: 14px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .hero {
-        height: 420px;
-    }
-
-    .hero-content h1 {
-        font-size: 34px;
-    }
-
-    .tabs {
-        gap: 8px;
-    }
-
-    .tab {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
 /* ===== Модалка ===== */
 .modal-overlay {
     position: fixed;
@@ -605,4 +534,77 @@ body {
     font-size: 24px;
     font-weight: 600;
     color: #5c4033;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #f7efe4;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 20px 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+    }
+
+    .nav.open {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-link {
+        padding: 14px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero {
+        height: 420px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .tabs {
+        gap: 8px;
+    }
+
+    .tab {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
