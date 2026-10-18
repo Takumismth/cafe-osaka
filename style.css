@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f7efe4;
@@ -18,10 +22,66 @@ body {
     padding: 0 20px;
 }
 
-/* Шапка */
+/* ===== Кнопки ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.btn-primary {
+    background: #f7efe4;
+    color: #5c4033;
+    padding: 15px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    background: #fff;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.btn-sm {
+    background: #5c4033;
+    color: #f7efe4;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+.btn-sm:hover {
+    background: #3d2b1f;
+    transform: translateY(-2px);
+}
+
+.btn-sm:active {
+    transform: translateY(0);
+}
+
+.btn-sm.added {
+    background: #2e7d32;
+    pointer-events: none;
+}
+
+/* ===== Шапка ===== */
 .header {
     background: rgba(247, 239, 228, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -64,19 +124,64 @@ body {
     gap: 32px;
 }
 
-.nav a {
+.nav-link {
     text-decoration: none;
     color: #5c4033;
     font-weight: 500;
     font-size: 15px;
-    transition: opacity 0.2s;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.2s;
 }
 
-.nav a:hover {
-    opacity: 0.7;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #5c4033;
+    transition: width 0.25s ease;
 }
 
-/* Герой */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Бургер */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #5c4033;
+    transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== Герой ===== */
 .hero {
     height: 520px;
     background: linear-gradient(rgba(61, 43, 31, 0.55), rgba(61, 43, 31, 0.55)),
@@ -101,24 +206,7 @@ body {
     margin-bottom: 32px;
 }
 
-.btn {
-    display: inline-block;
-    background: #f7efe4;
-    color: #5c4033;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* Меню */
+/* ===== Меню ===== */
 .menu-section {
     padding: 80px 0;
 }
@@ -186,7 +274,13 @@ body {
 .card-body p {
     font-size: 14px;
     color: #8b7355;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .price {
@@ -195,7 +289,7 @@ body {
     color: #5c4033;
 }
 
-/* О нас */
+/* ===== О нас ===== */
 .about {
     padding: 80px 0;
     background: #efe4d4;
@@ -234,7 +328,7 @@ body {
     display: block;
 }
 
-/* Контакты */
+/* ===== Контакты ===== */
 .contacts {
     padding: 80px 0;
 }
@@ -252,6 +346,11 @@ body {
     padding: 36px 28px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(92, 64, 51, 0.07);
+    transition: transform 0.25s;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
 }
 
 .contact-icon {
@@ -271,7 +370,7 @@ body {
     line-height: 1.6;
 }
 
-/* Футер */
+/* ===== Футер ===== */
 .footer {
     background: #5c4033;
     color: #f7efe4;
@@ -290,7 +389,7 @@ body {
     opacity: 0.7;
 }
 
-/* Адаптив */
+/* ===== Адаптив ===== */
 @media (max-width: 900px) {
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -314,8 +413,35 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .burger {
+        display: flex;
+    }
+
     .nav {
-        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #f7efe4;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 20px 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+    }
+
+    .nav.open {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-link {
+        padding: 14px 0;
+        width: 100%;
+        text-align: center;
     }
 
     .hero {
