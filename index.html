@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giraffe Coffee</title>
+    <title>Osaka Coffee</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,8 +14,8 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo">
-                <div class="logo-icon">🫍</div>
-                <div class="logo-text">Osaka coffee</div>
+                <div class="logo-icon">🇯🇵</div>
+                <div class="logo-text">Osaka</div>
             </div>
 
             <nav class="nav" id="nav">
@@ -45,89 +45,220 @@
     <section class="menu-section" id="menu">
         <div class="container">
             <h2 class="section-title">Меню</h2>
-            <p class="section-subtitle">Выбери свой вкус</p>
+            <p class="section-subtitle">Выбери категорию</p>
 
-            <div class="menu-grid">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&h=600&fit=crop" alt="Латте Карамель">
+            <div class="tabs">
+                <button class="tab active" data-tab="coffee">Кофе</button>
+                <button class="tab" data-tab="signature">Авторские</button>
+                <button class="tab" data-tab="cold">Холодные</button>
+            </div>
+
+            <!-- Кофе -->
+            <div class="tab-content active" id="coffee">
+                <div class="menu-grid">
+                    <div class="card" data-name="Эспрессо" data-desc="Классический двойной шот эспрессо. Насыщенный, плотный, с богатой крема. Идеально, чтобы быстро взбодриться." data-price="180 ₽" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop" alt="Эспрессо">
+                        </div>
+                        <div class="card-body">
+                            <h3>Эспрессо</h3>
+                            <p>Классический двойной шот</p>
+                            <div class="card-footer">
+                                <div class="price">180 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h3>Латте «Карамель»</h3>
-                        <p>Нежный латте с домашней карамелью</p>
-                        <div class="card-footer">
-                            <div class="price">260 ₽</div>
-                            <button class="btn btn-sm add-to-cart">В корзину</button>
+
+                    <div class="card" data-name="Американо" data-desc="Эспрессо, разбавленный горячей водой. Мягкий вкус, меньше плотности, чем у эспрессо, но всё тот же характер." data-price="200 ₽" data-img="https://images.unsplash.com/photo-1534778104954-a6476d8d8a4e?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1534778104954-a6476d8d8a4e?w=600&h=600&fit=crop" alt="Американо">
+                        </div>
+                        <div class="card-body">
+                            <h3>Американо</h3>
+                            <p>Эспрессо с горячей водой</p>
+                            <div class="card-footer">
+                                <div class="price">200 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-name="Капучино" data-desc="Идеальный баланс эспрессо, молока и молочной пены. Бархатистая текстура и классический вкус." data-price="230 ₽" data-img="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&h=600&fit=crop" alt="Капучино">
+                        </div>
+                        <div class="card-body">
+                            <h3>Капучино</h3>
+                            <p>Идеальный баланс молока и кофе</p>
+                            <div class="card-footer">
+                                <div class="price">230 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-name="Латте" data-desc="Нежный молочный кофе с большим количеством вспененного молока. Мягкий и сливочный." data-price="250 ₽" data-img="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=600&fit=crop" alt="Латте">
+                        </div>
+                        <div class="card-body">
+                            <h3>Латте</h3>
+                            <p>Нежный молочный кофе</p>
+                            <div class="card-footer">
+                                <div class="price">250 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-name="Флэт Уайт" data-desc="Двойной эспрессо и тонкий слой микропены. Более насыщенный, чем латте, но всё ещё мягкий." data-price="260 ₽" data-img="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=600&h=600&fit=crop" alt="Флэт Уайт">
+                        </div>
+                        <div class="card-body">
+                            <h3>Флэт Уайт</h3>
+                            <p>Двойной эспрессо + микропена</p>
+                            <div class="card-footer">
+                                <div class="price">260 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-name="Раф" data-desc="Сливочный кофе на основе эспрессо, сливок и ванильного сахара. Готовится во френч-прессе или питчере." data-price="270 ₽" data-img="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=600&fit=crop" alt="Раф">
+                        </div>
+                        <div class="card-body">
+                            <h3>Раф</h3>
+                            <p>Сливочный кофе с ванилью</p>
+                            <div class="card-footer">
+                                <div class="price">270 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1534778104954-a6476d8d8a4e?w=600&h=600&fit=crop" alt="Капучино">
+            <!-- Авторские -->
+            <div class="tab-content" id="signature">
+                <div class="menu-grid">
+                    <div class="card" data-name="Латте «Карамель»" data-desc="Классический латте с домашней солёной карамелью. Сладкий, но с интересной солоноватой ноткой." data-price="280 ₽" data-img="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&h=600&fit=crop" alt="Латте Карамель">
+                        </div>
+                        <div class="card-body">
+                            <h3>Латте «Карамель»</h3>
+                            <p>С домашней солёной карамелью</p>
+                            <div class="card-footer">
+                                <div class="price">280 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h3>Классический Капучино</h3>
-                        <p>Идеальный баланс эспрессо и молока</p>
-                        <div class="card-footer">
-                            <div class="price">230 ₽</div>
-                            <button class="btn btn-sm add-to-cart">В корзину</button>
+
+                    <div class="card" data-name="Мокко" data-desc="Эспрессо, молоко и настоящий бельгийский шоколад. Для тех, кто любит кофе и шоколад вместе." data-price="300 ₽" data-img="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=600&fit=crop" alt="Мокко">
+                        </div>
+                        <div class="card-body">
+                            <h3>Мокко</h3>
+                            <p>Эспрессо, молоко и бельгийский шоколад</p>
+                            <div class="card-footer">
+                                <div class="price">300 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-name="Матча Латте" data-desc="Японский зелёный чай матча премиум-класса, взбитый с молоком. Нежный, слегка травянистый вкус." data-price="290 ₽" data-img="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=600&h=600&fit=crop" alt="Матча Латте">
+                        </div>
+                        <div class="card-body">
+                            <h3>Матча Латте</h3>
+                            <p>Японский чай матча премиум</p>
+                            <div class="card-footer">
+                                <div class="price">290 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-name="Лавандовый Раф" data-desc="Нежный раф с натуральным лавандовым сиропом. Цветочный аромат и сливочная текстура." data-price="310 ₽" data-img="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=600&fit=crop" alt="Лавандовый раф">
+                        </div>
+                        <div class="card-body">
+                            <h3>Лавандовый Раф</h3>
+                            <p>Нежный раф с лавандовым сиропом</p>
+                            <div class="card-footer">
+                                <div class="price">310 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=600&h=600&fit=crop" alt="Матча Латте">
-                    </div>
-                    <div class="card-body">
-                        <h3>Матча Латте</h3>
-                        <p>Японский чай матча с молоком</p>
-                        <div class="card-footer">
-                            <div class="price">270 ₽</div>
-                            <button class="btn btn-sm add-to-cart">В корзину</button>
+            <!-- Холодные -->
+            <div class="tab-content" id="cold">
+                <div class="menu-grid">
+                    <div class="card" data-name="Айс Латте" data-desc="Холодный латте со льдом. Освежающий и мягкий вариант классического латте." data-price="270 ₽" data-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&h=600&fit=crop" alt="Айс Латте">
+                        </div>
+                        <div class="card-body">
+                            <h3>Айс Латте</h3>
+                            <p>Холодный латте со льдом</p>
+                            <div class="card-footer">
+                                <div class="price">270 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=600&fit=crop" alt="Раф">
-                    </div>
-                    <div class="card-body">
-                        <h3>Раф Ванильный</h3>
-                        <p>Сливочный раф с ванильным сиропом</p>
-                        <div class="card-footer">
-                            <div class="price">270 ₽</div>
-                            <button class="btn btn-sm add-to-cart">В корзину</button>
+                    <div class="card" data-name="Бамбл" data-desc="Эспрессо, свежий апельсиновый сок и лёд. Яркий, освежающий и очень летний напиток." data-price="290 ₽" data-img="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&h=600&fit=crop" alt="Бамбл">
+                        </div>
+                        <div class="card-body">
+                            <h3>Бамбл</h3>
+                            <p>Эспрессо, апельсиновый сок и лёд</p>
+                            <div class="card-footer">
+                                <div class="price">290 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop" alt="Флэт Уайт">
-                    </div>
-                    <div class="card-body">
-                        <h3>Флэт Уайт</h3>
-                        <p>Двойной эспрессо и микропена</p>
-                        <div class="card-footer">
-                            <div class="price">260 ₽</div>
-                            <button class="btn btn-sm add-to-cart">В корзину</button>
+                    <div class="card" data-name="Эспрессо Тоник" data-desc="Эспрессо, тоник и лёд. Горчинка кофе + пузырьки тоника = идеальный освежающий микс." data-price="280 ₽" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop" alt="Эспрессо Тоник">
+                        </div>
+                        <div class="card-body">
+                            <h3>Эспрессо Тоник</h3>
+                            <p>Освежающий кофе с тоником</p>
+                            <div class="card-footer">
+                                <div class="price">280 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=600&fit=crop" alt="Мокко">
-                    </div>
-                    <div class="card-body">
-                        <h3>Мокко Шоколадный</h3>
-                        <p>Эспрессо, молоко и настоящий шоколад</p>
-                        <div class="card-footer">
-                            <div class="price">300 ₽</div>
-                            <button class="btn btn-sm add-to-cart">В корзину</button>
+                    <div class="card" data-name="Колд Брю" data-desc="Кофе холодного заваривания в течение 12 часов. Мягкий, сладковатый, почти без горечи." data-price="300 ₽" data-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&h=600&fit=crop">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=600&h=600&fit=crop" alt="Колд Брю">
+                        </div>
+                        <div class="card-body">
+                            <h3>Колд Брю</h3>
+                            <p>Холодное заваривание 12 часов</p>
+                            <div class="card-footer">
+                                <div class="price">300 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,8 +271,8 @@
         <div class="container about-inner">
             <div class="about-text">
                 <h2>О кофейне</h2>
-                <p>Osaka coffee — это место, где кофе готовят с душой. Мы сами обжариваем зёрна и делаем авторские напитки, которые хочется пить снова и снова.</p>
-                <p>Уютный интерьер, приятная музыка и атмосфера, в которой хочется задержаться.</p>
+                <p>Osaka Coffee — это место, где японская эстетика встречается с качественным кофе. Мы обжариваем зёрна сами и готовим напитки, которые хочется пить снова и снова.</p>
+                <p>Минимализм, внимание к деталям и атмосфера, в которой хочется задержаться.</p>
             </div>
             <div class="about-img">
                 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop" alt="Интерьер">
@@ -153,20 +284,17 @@
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
-
             <div class="contacts-grid">
                 <div class="contact-card">
                     <div class="contact-icon">📍</div>
                     <h3>Адрес</h3>
-                    <p>г. Бишкек, ул. Чуй 123<br>ТЦ "азия молл", 1 этаж</p>
+                    <p>г. Бишкек, ул. Чуй 123<br>БЦ «Osaka», 1 этаж</p>
                 </div>
-
                 <div class="contact-card">
                     <div class="contact-icon">🕐</div>
                     <h3>Часы работы</h3>
                     <p>Пн–Пт: 08:00 – 22:00<br>Сб–Вс: 09:00 – 23:00</p>
                 </div>
-
                 <div class="contact-card">
                     <div class="contact-icon">📞</div>
                     <h3>Телефон</h3>
@@ -179,10 +307,28 @@
     <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">🫍 Osaka Coffee</div>
-            <p>кутя гений</p>
+            <div class="footer-logo">🇯🇵 Osaka Coffee</div>
+            <p>© 2026 Osaka Coffee. Все права защищены.</p>
         </div>
     </footer>
+
+    <!-- Модалка -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" id="modal-close">×</button>
+            <div class="modal-img">
+                <img id="modal-img" src="" alt="">
+            </div>
+            <div class="modal-body">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <div class="modal-footer">
+                    <div class="modal-price" id="modal-price"></div>
+                    <button class="btn btn-sm add-to-cart" id="modal-add">В корзину</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
