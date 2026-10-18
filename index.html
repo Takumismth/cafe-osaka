@@ -4,103 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osaka • Coffee</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <title>Osaka Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="logo">
-        <div class="logo-icon">🦒</div>
-        <div class="logo-text">Osaka coffee</div>
-    </div>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">🫍</div>
+                <div class="logo-text">Osaka coffee</div>
+            </div>
+            <nav class="nav">
+                <a href="#menu">Меню</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
 
-    <h1 class="title">КОФЕ</h1>
+    <!-- Герой -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Кофе, который<br>хочется пить</h1>
+            <p>Свежая обжарка • Авторские напитки • Уютная атмосфера</p>
+            <a href="#menu" class="btn">Смотреть меню</a>
+        </div>
+    </section>
 
-    <div class="menu">
-        <div class="item">
-            <div class="cup mango">
-                <div class="pearls">
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
+    <!-- Меню -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Меню</h2>
+            <p class="section-subtitle">Выбери свой вайб</p>
+
+            <div class="menu-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&h=600&fit=crop" alt="Латте Карамель">
+                    </div>
+                    <div class="card-body">
+                        <h3>Латте «Карамель»</h3>
+                        <p>Нежный латте с домашней карамелью</p>
+                        <div class="price">260 ₽</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1534778104954-a6476d8d8a4e?w=600&h=600&fit=crop" alt="Капучино">
+                    </div>
+                    <div class="card-body">
+                        <h3>Классический Капучино</h3>
+                        <p>Идеальный баланс эспрессо и молока</p>
+                        <div class="price">230 ₽</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=600&h=600&fit=crop" alt="Матча Латте">
+                    </div>
+                    <div class="card-body">
+                        <h3>Матча Латте</h3>
+                        <p>Японский чай матча с молоком</p>
+                        <div class="price">270 ₽</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=600&fit=crop" alt="Раф">
+                    </div>
+                    <div class="card-body">
+                        <h3>Раф Ванильный</h3>
+                        <p>Сливочный раф с ванильным сиропом</p>
+                        <div class="price">270 ₽</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop" alt="Флэт Уайт">
+                    </div>
+                    <div class="card-body">
+                        <h3>Флэт Уайт</h3>
+                        <p>Двойной эспрессо и микропена</p>
+                        <div class="price">260 ₽</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&h=600&fit=crop" alt="Мокко">
+                    </div>
+                    <div class="card-body">
+                        <h3>Мокко Шоколадный</h3>
+                        <p>Эспрессо, молоко и настоящий шоколад</p>
+                        <div class="price">300 ₽</div>
+                    </div>
                 </div>
             </div>
-            <div class="name">Латте<br>«Карамель»</div>
-            <div class="price">260</div>
         </div>
+    </section>
 
-        <div class="item">
-            <div class="cup classic">
-                <div class="pearls">
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
+    <!-- О нас -->
+    <section class="about" id="about">
+        <div class="container about-inner">
+            <div class="about-text">
+                <h2>О кофейне</h2>
+                <p>Osaka coffee — это место, где кофе готовят с душой. Мы сами обжариваем зёрна и делаем авторские напитки, которые хочется пить снова и снова.</p>
+                <p>Уютный интерьер, приятная музыка и атмосфера, в которой хочется задержаться.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop" alt="Интерьер">
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Адрес</h3>
+                    <p>г. Бишкек, ул. Чуй 123<br>ТЦ "азия молл", 1 этаж</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🕐</div>
+                    <h3>Часы работы</h3>
+                    <p>Пн–Пт: 08:00 – 22:00<br>Сб–Вс: 09:00 – 23:00</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Телефон</h3>
+                    <p>+996 555 123 456<br>WhatsApp / Telegram</p>
                 </div>
             </div>
-            <div class="name">Классический<br>Капучино</div>
-            <div class="price">230</div>
         </div>
+    </section>
 
-        <div class="item">
-            <div class="cup dragon">
-                <div class="pearls">
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                </div>
-            </div>
-            <div class="name">Матча<br>Латте</div>
-            <div class="price">270</div>
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Osaka coffee</div>
+            <p>кутя хз</p>
         </div>
-
-        <div class="item">
-            <div class="cup oreo">
-                <div class="pearls">
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                </div>
-            </div>
-            <div class="name">Раф<br>Ванильный</div>
-            <div class="price">270</div>
-        </div>
-
-        <div class="item">
-            <div class="cup matcha">
-                <div class="pearls">
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                </div>
-            </div>
-            <div class="name">Флэт Уайт</div>
-            <div class="price">260</div>
-        </div>
-
-        <div class="item">
-            <div class="cup matcha-oreo">
-                <div class="pearls">
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                    <div class="pearl"></div>
-                </div>
-            </div>
-            <div class="name">Мокко<br>Шоколадный</div>
-            <div class="price">300</div>
-        </div>
-    </div>
-
-    <div class="footer">
-        *Напитки могут иметь незначительные визуальные отличия.<br>
-        Напитки без льда могут отличаться по объёму.
-    </div>
+    </footer>
 
 </body>
 </html>
