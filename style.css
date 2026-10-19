@@ -85,14 +85,13 @@ body {
 
 /* ===== Шапка ===== */
 .header {
-    background: rgba(247, 239, 228, 0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(247, 239, 228, 0.85);
+    backdrop-filter: blur(14px);
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(92, 64, 51, 0.08);
 }
-
 .header-inner {
     display: flex;
     justify-content: space-between;
