@@ -1,5 +1,5 @@
 //работал эрлан 
-// Бургер
+// ===== Бургер =====
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 
@@ -15,13 +15,13 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Лого → наверх
+// ===== Лого → наверх =====
 document.getElementById('logo').addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Табы
+// ===== Табы =====
 const tabs = document.querySelectorAll('.tab');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -34,7 +34,7 @@ tabs.forEach(tab => {
     });
 });
 
-// Модалка товара
+// ===== Модалка товара =====
 const modal = document.getElementById('modal');
 const modalClose = document.getElementById('modal-close');
 const modalImg = document.getElementById('modal-img');
@@ -58,7 +58,7 @@ function closeModal() {
 
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', (e) => {
-        if (e.target.classList.contains('add-to-cart')) return;
+        if (e.target.closest('.add-to-cart')) return;
         openModal(card);
     });
 });
@@ -66,12 +66,6 @@ document.querySelectorAll('.card').forEach(card => {
 modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
-});
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal();
-        closeCart();
-    }
 });
 
 // ===== Корзина =====
@@ -100,6 +94,13 @@ cartOverlay.addEventListener('click', (e) => {
     if (e.target === cartOverlay) closeCart();
 });
 
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+        closeCart();
+    }
+});
+
 function updateCart() {
     cartCount.textContent = cart.length;
 
@@ -109,11 +110,11 @@ function updateCart() {
         return;
     }
 
-    cartItems.innerHTML = '';
     let total = 0;
+    cartItems.innerHTML = '';
 
     cart.forEach((item, index) => {
-        const priceNum = parseInt(item.price);
+        const priceNum = parseInt(item.price.replace(/\D/g, '')) || 0;
         total += priceNum;
 
         const el = document.createElement('div');
@@ -131,55 +132,67 @@ function updateCart() {
 
     cartTotal.textContent = total + ' ₽';
 
-    // Удаление
+    // Кнопки удаления
     document.querySelectorAll('.cart-item-remove').forEach(btn => {
         btn.addEventListener('click', () => {
-            cart.splice(btn.dataset.index, 1);
+            const index = parseInt(btn.dataset.index);
+            cart.splice(index, 1);
             updateCart();
         });
     });
 }
 
-// Добавление в корзину
-document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
+// ===== Добавление в корзину =====
+function addToCart(name, price, img, button) {
+    cart.push({ name, price, img });
+    updateCart();
 
-        const card = this.closest('.card') || this.closest('.modal-body')?.closest('.modal')?.querySelector('.modal') ;
-        
-        // Берём данные
-        let name, price, img;
-
-        if (this.closest('.card')) {
-            const card = this.closest('.card');
-            name = card.dataset.name;
-            price = card.dataset.price;
-            img = card.dataset.img;
-        } else {
-            // Из модалки
-            name = modalTitle.textContent;
-            price = modalPrice.textContent;
-            img = modalImg.src;
-        }
-
-        cart.push({ name, price, img });
-        updateCart();
-
-        this.textContent = 'Добавлено ✓';
-        this.classList.add('added');
+    if (button) {
+        const originalText = button.textContent;
+        button.textContent = 'Добавлено ✓';
+        button.classList.add('added');
 
         setTimeout(() => {
-            this.textContent = 'В корзину';
-            this.classList.remove('added');
+            button.textContent = 'В корзину';
+            button.classList.remove('added');
         }, 1500);
+    }
+}
+
+// Кнопки на карточках
+document.querySelectorAll('.card .add-to-cart').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const card = this.closest('.card');
+        if (!card) return;
+
+        addToCart(
+            card.dataset.name,
+            card.dataset.price,
+            card.dataset.img,
+            this
+        );
     });
 });
 
+// Кнопка в модалке
+const modalAddBtn = document.getElementById('modal-add');
+if (modalAddBtn) {
+    modalAddBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        addToCart(
+            modalTitle.textContent,
+            modalPrice.textContent,
+            modalImg.src,
+            this
+        );
+    });
+}
+
 // Оформить заказ
 document.getElementById('cart-checkout').addEventListener('click', () => {
-    if (cart.length === 0) return;
-    alert('Спасибо за заказ! Мы свяжемся с вами.');
-    cart = [];
-    updateCart();
-    closeCart();
-});
+    if (cart.length === 0) {
