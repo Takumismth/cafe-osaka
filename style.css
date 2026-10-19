@@ -13,12 +13,12 @@ body {
     font-family: 'Inter', sans-serif;
     color: #3d2b1f;
     line-height: 1.5;
-    background-color: #f3e9dc;
-    background-image: 
-        radial-gradient(ellipse at 20% 20%, rgba(210, 180, 140, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 0%, rgba(180, 140, 100, 0.18) 0%, transparent 45%),
-        radial-gradient(ellipse at 50% 100%, rgba(160, 120, 80, 0.12) 0%, transparent 50%),
-        linear-gradient(180deg, #f7efe4 0%, #f0e4d4 50%, #ebe0ce 100%);
+    min-height: 100vh;
+    background: 
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 248, 240, 0.9) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 50% at 100% 50%, rgba(210, 170, 120, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 0% 80%, rgba(180, 130, 90, 0.12) 0%, transparent 50%),
+        linear-gradient(165deg, #f8f1e7 0%, #f0e6d6 35%, #e8d9c4 70%, #e2d0b8 100%);
     background-attachment: fixed;
 }
 
