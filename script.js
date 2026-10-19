@@ -298,61 +298,72 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
 // ===== Оформление + Чек =====
 const receiptOverlay = document.getElementById('receipt-overlay');
 const receiptBody = document.getElementById('receipt-body');
-const receiptTotal = document.getElementById('receipt-total');
+const receiptTotalEl = document.getElementById('receipt-total');
 const receiptClose = document.getElementById('receipt-close');
-let receiptFocusCleanup = null;
-let receiptLastFocused = null;
+const cartCheckout = document.getElementById('cart-checkout');
 
 if (cartCheckout) {
     cartCheckout.addEventListener('click', () => {
-        if (cart.length === 0) { alert('Корзина пуста'); return; }
+        console.log('checkout clicked', cart);
+
+        if (!cart || cart.length === 0) {
+            alert('Корзина пуста');
+            return;
+        }
+
+        if (!receiptOverlay || !receiptBody || !receiptTotalEl) {
+            alert('Ошибка: блок чека не найден в HTML');
+            return;
+        }
+
         playSound('success');
 
         let total = 0;
-        if (receiptBody) receiptBody.innerHTML = '';
+        receiptBody.innerHTML = '';
 
         cart.forEach(item => {
             const priceNum = parseInt(String(item.price).replace(/\D/g, '')) || 0;
-            const lineTotal = priceNum * item.qty;
+            const lineTotal = priceNum * (item.qty || 1);
             total += lineTotal;
+
             const row = document.createElement('div');
             row.className = 'receipt-item';
-            row.innerHTML = `<span>${item.name}${item.qty > 1 ? ` ×${item.qty}` : ''}</span><span>${lineTotal} ₽</span>`;
-            receiptBody?.appendChild(row);
+            row.innerHTML = `
+                <span>${item.name}${item.qty > 1 ? ' ×' + item.qty : ''}</span>
+                <span>${lineTotal} ₽</span>
+            `;
+            receiptBody.appendChild(row);
         });
-        if (receiptTotal) receiptTotal.textContent = total + ' ₽';
 
-        // Закрыть корзину и открыть чек
-        closeCart();
-        if (receiptOverlay) {
-            receiptLastFocused = document.activeElement;
-            receiptOverlay.classList.add('active');
-            lockScroll();
-            receiptOverlay.setAttribute('aria-hidden', 'false');
-            receiptFocusCleanup = createFocusTrap(receiptOverlay);
-            receiptOverlay.querySelector('button')?.focus();
-        }
+        receiptTotalEl.textContent = total + ' ₽';
 
-        // очистить корзину
+        // закрываем корзину
+        if (typeof closeCart === 'function') closeCart();
+
+        // показываем чек
+        receiptOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // очищаем корзину
         cart = [];
-        updateCart();
+        if (typeof updateCart === 'function') updateCart();
     });
 }
 
-if (receiptClose) receiptClose.addEventListener('click', () => { playSound('click'); if (receiptOverlay) { receiptOverlay.classList.remove('active'); receiptOverlay.setAttribute('aria-hidden', 'true'); } if (typeof receiptFocusCleanup === 'function') { receiptFocusCleanup(); receiptFocusCleanup = null; } unlockScroll(); if (receiptLastFocused) receiptLastFocused.focus(); });
-if (receiptOverlay) receiptOverlay.addEventListener('click', e => { if (e.target === receiptOverlay) { receiptOverlay.classList.remove('active'); receiptOverlay.setAttribute('aria-hidden', 'true'); if (typeof receiptFocusCleanup === 'function') { receiptFocusCleanup(); receiptFocusCleanup = null; } unlockScroll(); if (receiptLastFocused) receiptLastFocused.focus(); } });
-
-// ===== Escape: закрываем все оверлеи безопасно =====
-document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape') return;
-    if (modal && modal.classList.contains('active')) closeModal();
-    if (cartOverlay && cartOverlay.classList.contains('active')) closeCart();
-    if (receiptOverlay && receiptOverlay.classList.contains('active')) {
+if (receiptClose) {
+    receiptClose.addEventListener('click', () => {
+        playSound('click');
         receiptOverlay.classList.remove('active');
-        receiptOverlay.setAttribute('aria-hidden', 'true');
-        if (typeof receiptFocusCleanup === 'function') { receiptFocusCleanup(); receiptFocusCleanup = null; }
-        unlockScroll();
-    }
-});
+        document.body.style.overflow = '';
+    });
+}
 
+if (receiptOverlay) {
+    receiptOverlay.addEventListener('click', e => {
+        if (e.target === receiptOverlay) {
+            receiptOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
 updateCart();
