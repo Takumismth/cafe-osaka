@@ -585,7 +585,6 @@ body {
     .hero-content h1 {
         font-size: 42px;
     }
-}
 
 @media (max-width: 700px) {
     .modal-content {
