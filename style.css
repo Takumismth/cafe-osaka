@@ -27,6 +27,169 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+/* ===== Переключатель темы ===== */
+.theme-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(196, 164, 132, 0.2);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.06);
+    background: rgba(196, 164, 132, 0.35);
+}
+
+/* ===== Светлая тема (по умолчанию) ===== */
+body.light {
+    background-color: #f3e9dc;
+    background-image: 
+        radial-gradient(ellipse at 20% 20%, rgba(210, 180, 140, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 0%, rgba(180, 140, 100, 0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 100%, rgba(160, 120, 80, 0.12) 0%, transparent 50%),
+        linear-gradient(180deg, #f7efe4 0%, #f0e4d4 50%, #ebe0ce 100%);
+}
+
+body.light .header {
+    background: rgba(247, 239, 228, 0.9);
+    border-bottom: 1px solid rgba(92, 64, 51, 0.08);
+    box-shadow: 0 4px 20px rgba(92, 64, 51, 0.05);
+}
+
+body.light .logo-text,
+body.light .nav-link {
+    color: #5c4033;
+}
+
+body.light .nav-link::after {
+    background: #5c4033;
+}
+
+body.light .logo-icon {
+    background: #5c4033;
+    color: #fff;
+}
+
+body.light .burger span {
+    background: #5c4033;
+}
+
+body.light .section-title {
+    color: #5c4033;
+}
+
+body.light .section-subtitle {
+    color: #8b7355;
+}
+
+body.light .tab {
+    border-color: #5c4033;
+    color: #5c4033;
+}
+
+body.light .tab:hover {
+    background: rgba(92, 64, 51, 0.08);
+}
+
+body.light .tab.active {
+    background: #5c4033;
+    color: #f7efe4;
+}
+
+body.light .about {
+    background: #efe4d4;
+}
+
+body.light .about-text h2,
+body.light .about-text p {
+    color: #5c4033;
+}
+
+body.light .footer {
+    background: #5c4033;
+}
+
+body.light .theme-btn {
+    background: rgba(92, 64, 51, 0.1);
+}
+
+/* ===== Тёмная тема ===== */
+body.dark {
+    background-color: #1a120b;
+    background-image: 
+        radial-gradient(ellipse 100% 80% at 50% -30%, rgba(255, 236, 210, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 100% 20%, rgba(180, 130, 80, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 0% 90%, rgba(140, 90, 50, 0.1) 0%, transparent 50%),
+        linear-gradient(165deg, #2a1f16 0%, #1f1610 40%, #18120c 100%);
+}
+
+body.dark .header {
+    background: rgba(30, 22, 15, 0.85);
+    border-bottom: 1px solid rgba(255, 236, 210, 0.08);
+}
+
+body.dark .logo-text,
+body.dark .nav-link {
+    color: #f0e6d6;
+}
+
+body.dark .nav-link::after {
+    background: #e8d5b8;
+}
+
+body.dark .logo-icon {
+    background: #c4a484;
+    color: #1a120b;
+}
+
+body.dark .burger span {
+    background: #f0e6d6;
+}
+
+body.dark .section-title {
+    color: #f0e6d6;
+}
+
+body.dark .section-subtitle {
+    color: #b9a48a;
+}
+
+body.dark .tab {
+    border-color: #c4a484;
+    color: #e8d5b8;
+}
+
+body.dark .tab:hover {
+    background: rgba(196, 164, 132, 0.15);
+}
+
+body.dark .tab.active {
+    background: #c4a484;
+    color: #1a120b;
+}
+
+body.dark .about {
+    background: rgba(40, 30, 22, 0.55);
+}
+
+body.dark .about-text h2 {
+    color: #f0e6d6;
+}
+
+body.dark .about-text p {
+    color: #d4c4b0;
+}
+
+body.dark .footer {
+    background: #120c08;
+}
 
 /* ===== Кнопки ===== */
 .btn {
