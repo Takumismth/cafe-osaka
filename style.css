@@ -1059,12 +1059,122 @@ body.dark .footer {
         padding: 10px 20px;
         font-size: 14px;
     }
-}
-
+    
 @media (max-width: 480px) {
     .cart-sidebar {
         width: 100%;
         max-width: 100%;
         border-radius: 0;
     }
+/* ===== Чек ===== */
+.receipt-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 10, 6, 0.65);
+    backdrop-filter: blur(8px);
+    z-index: 1300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.receipt-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.receipt {
+    background: #fffaf3;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    transform: scale(0.92) translateY(15px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: 'Inter', sans-serif;
+}
+
+.receipt-overlay.active .receipt {
+    transform: scale(1) translateY(0);
+}
+
+.receipt-header {
+    text-align: center;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #d4c4b0;
+}
+
+.receipt-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #5c4033;
+    margin-bottom: 4px;
+}
+
+.receipt-title {
+    font-size: 13px;
+    color: #8b7355;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.receipt-body {
+    margin-bottom: 18px;
+}
+
+.receipt-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #3d2b1f;
+}
+
+.receipt-item span:last-child {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.receipt-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px dashed #d4c4b0;
+    font-size: 16px;
+    color: #3d2b1f;
+    margin-bottom: 22px;
+}
+
+.receipt-total strong {
+    font-size: 20px;
+    color: #5c4033;
+}
+
+.receipt-footer {
+    text-align: center;
+}
+
+.receipt-footer p {
+    margin-bottom: 4px;
+    color: #5c4033;
+    font-weight: 500;
+}
+
+.receipt-note {
+    font-size: 13px !important;
+    color: #8b7355 !important;
+    font-weight: 400 !important;
+    margin-bottom: 18px !important;
+}
+
+.receipt-footer .btn {
+    width: 100%;
+    padding: 12px;
+}
 }
