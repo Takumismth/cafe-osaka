@@ -11,9 +11,15 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f7efe4;
     color: #3d2b1f;
     line-height: 1.5;
+    background-color: #f3e9dc;
+    background-image: 
+        radial-gradient(ellipse at 20% 20%, rgba(210, 180, 140, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 0%, rgba(180, 140, 100, 0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 100%, rgba(160, 120, 80, 0.12) 0%, transparent 50%),
+        linear-gradient(180deg, #f7efe4 0%, #f0e4d4 50%, #ebe0ce 100%);
+    background-attachment: fixed;
 }
 
 .container {
