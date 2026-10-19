@@ -890,4 +890,14 @@ body {
         max-width: 100%;
         border-radius: 0;
     }
+    .cart-qty {
+    display: inline-block;
+    background: #5c4033;
+    color: #f7efe4;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 20px;
+    margin-left: 4px;
+}
 }
