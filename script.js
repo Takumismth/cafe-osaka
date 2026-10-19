@@ -87,3 +87,11 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
         }, 2000);
     });
 });
+// Клик по логотипу — наверх
+document.getElementById('logo').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
