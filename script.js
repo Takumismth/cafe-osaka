@@ -196,3 +196,14 @@ if (modalAddBtn) {
 // Оформить заказ
 document.getElementById('cart-checkout').addEventListener('click', () => {
     if (cart.length === 0) {
+        alert('Корзина пуста');
+        return;
+    }
+    alert('Спасибо за заказ! Мы свяжемся с вами.');
+    cart = [];
+    updateCart();
+    closeCart();
+});
+
+// Инициализация
+updateCart();
