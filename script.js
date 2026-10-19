@@ -208,3 +208,24 @@ if (cartCheckout) {
 }
 
 updateCart();
+// ===== Тема =====
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
+
+// Загружаем сохранённую тему
+const savedTheme = localStorage.getItem('theme') || 'light';
+body.classList.add(savedTheme);
+
+if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        if (body.classList.contains('light')) {
+            body.classList.remove('light');
+            body.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark');
+            body.classList.add('light');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
