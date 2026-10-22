@@ -15,9 +15,9 @@
 
 ## Команда
 
-team lead Эрлан
-Style.css Илим
-index.html Кутя
+-team lead Эрлан
+-Style.css Илим
+-index.html Кутя
 
 ## Запуск
 
