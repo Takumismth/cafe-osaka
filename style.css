@@ -1041,90 +1041,232 @@ body.dark .cart-count {
 
 /* ===== Адаптив ===== */
 @media (max-width: 900px) {
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .about-inner {
-        grid-template-columns: 1fr;
-    }
-    .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-    .hero-content h1 {
-        font-size: 42px;
-    }
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-img img {
+    height: 280px;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 700px) {
-    .modal-content {
-        grid-template-columns: 1fr;
-    }
-    .modal-img {
-        padding: 30px 20px;
-        min-height: 240px;
-    }
-    .modal-img img {
-        max-height: 220px;
-    }
-    .modal-body {
-        padding: 28px 24px 36px;
-    }
-    .modal-body h2 {
-        font-size: 22px;
-    }
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-img {
+    padding: 24px 16px;
+    min-height: 200px;
+  }
+
+  .modal-img img {
+    max-height: 200px;
+  }
+
+  .modal-body {
+    padding: 24px 20px 30px;
+  }
+
+  .modal-body h2 {
+    font-size: 20px;
+  }
+
+  .modal-price {
+    font-size: 20px;
+  }
+
+  .modal-body p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 600px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-    .burger {
-        display: flex;
-    }
-    .nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #1f1610;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        padding: 20px 0;
-        transform: translateY(-120%);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-    body.light .nav {
-        background: #f7efe4;
-    }
-    .nav.open {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    .nav-link {
-        padding: 14px 0;
-        width: 100%;
-        text-align: center;
-    }
-    .hero {
-        height: 420px;
-    }
-    .hero-content h1 {
-        font-size: 34px;
-    }
-    .tabs {
-        gap: 8px;
-    }
-    .tab {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #1f1610;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 12px 0;
+    transform: translateY(-130%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 236, 210, 0.1);
+    z-index: 99;
+  }
+
+  body.light .nav {
+    background: #f7efe4;
+    border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    padding: 14px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .hero {
+    height: 380px;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary {
+    padding: 13px 28px;
+    font-size: 14px;
+  }
+
+  .menu-section {
+    padding: 50px 0 60px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .tabs {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .tab {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+
+  .card-img {
+    height: 200px;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
+  .card-body h3 {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .about {
+    padding: 50px 0;
+  }
+
+  .about-text h2 {
+    font-size: 26px;
+  }
+
+  .contacts {
+    padding: 50px 0;
+  }
+
+  .contact-card {
+    padding: 28px 20px;
+  }
+
+  .header-inner {
+    height: 64px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  .theme-btn,
+  .cart-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+}
 
 @media (max-width: 480px) {
-    .cart-sidebar {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 0;
-    }
+  .cart-sidebar {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+
+  .tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .receipt {
+    padding: 22px 16px;
+  }
 }
