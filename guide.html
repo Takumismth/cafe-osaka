@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кофе-гид — Osaka Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .guide-hero { padding: 80px 0 40px; text-align: center; }
+    .guide-content { max-width: 720px; margin: 0 auto; padding-bottom: 80px; }
+    .guide-block {
+      background: rgba(255,248,240,0.95);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .guide-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #5c4033;
+      margin-bottom: 12px;
+    }
+    .guide-block p {
+      font-size: 15px;
+      color: #5c4033;
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .guide-block ul {
+      margin: 12px 0 0 18px;
+      color: #5c4033;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body class="light">
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo-icon">🇯🇵</div>
+        <div class="logo-text">Osaka</div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#menu" class="nav-link">Меню</a>
+        <a href="gallery.html" class="nav-link">Галерея</a>
+        <a href="events.html" class="nav-link">События</a>
+        <a href="guide.html" class="nav-link">Кофе-гид</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-btn" id="theme-btn">🌓</button>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="guide-hero container">
+    <h1 class="section-title">Кофе-гид</h1>
+    <p class="section-subtitle">Коротко о вкусе, обжарке и заваривании</p>
+  </section>
+
+  <div class="container guide-content">
+    <div class="guide-block">
+      <h3>Как выбрать зерно</h3>
+      <p>Смотри на происхождение, обработку и степень обжарки — не только на красивую упаковку.</p>
+      <ul>
+        <li><strong>Светлая</strong> — больше кислотности, цветочные и фруктовые ноты</li>
+        <li><strong>Средняя</strong> — баланс, орех, шоколад, карамель</li>
+        <li><strong>Тёмная</strong> — плотность, горечь, какао, подходит для молока</li>
+      </ul>
+    </div>
+
+    <div class="guide-block">
+      <h3>Эспрессо или фильтр?</h3>
+      <p><strong>Эспрессо</strong> — концентрированный вкус, основа для капучино и латте.</p>
+      <p><strong>Фильтр (V60, батч)</strong> — чище, прозрачнее, лучше раскрывает терруар.</p>
+    </div>
+
+    <div class="guide-block">
+      <h3>Дома: простые правила</h3>
+      <ul>
+        <li>Моли прямо перед завариванием</li>
+        <li>Вода 92–96°C (не кипяток)</li>
+        <li>Пропорция старт: 1 г кофе на 15–16 г воды</li>
+        <li>Храни зерно в сухом месте, без света и воздуха</li>
+      </ul>
+    </div>
+
+    <div class="guide-block">
+      <h3>Что попробовать в Osaka</h3>
+      <p>Если не знаешь, с чего начать:</p>
+      <ul>
+        <li><strong>Флэт уайт</strong> — если любишь плотный молочный кофе</li>
+        <li><strong>Фильтр Эфиопия</strong> — если хочешь фрукты и цветы</li>
+        <li><strong>Матча латте</strong> — если хочется чего-то не кофейного, но бодрящего</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">🇯🇵 Osaka Coffee</div>
+      <p>© 2026 Osaka Coffee</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
