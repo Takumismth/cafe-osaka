@@ -18,6 +18,7 @@
 - team lead Эрлан
 - Style.css Илим
 - index.html Кутя
+- помощь в html и css бекназар
 
 ## Запуск
 
