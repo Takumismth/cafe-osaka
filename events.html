@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>События — Osaka Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .events-hero { padding: 80px 0 40px; text-align: center; }
+    .events-list { max-width: 720px; margin: 0 auto; padding-bottom: 80px; }
+    .event-card {
+      background: rgba(255,248,240,0.95);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .event-date {
+      background: #5c4033;
+      color: #f7efe4;
+      border-radius: 14px;
+      text-align: center;
+      padding: 14px 8px;
+    }
+    .event-date .day { font-size: 28px; font-weight: 700; line-height: 1; }
+    .event-date .month { font-size: 12px; opacity: 0.85; margin-top: 4px; }
+    .event-card h3 { font-size: 18px; color: #3d2b1f; margin-bottom: 8px; }
+    .event-card p { font-size: 14px; color: #8b7355; line-height: 1.55; margin-bottom: 12px; }
+    .event-meta { font-size: 13px; color: #5c4033; font-weight: 500; }
+    @media (max-width: 500px) {
+      .event-card { grid-template-columns: 1fr; }
+      .event-date { display: flex; gap: 10px; align-items: center; justify-content: center; padding: 10px; }
+      .event-date .day { font-size: 22px; }
+    }
+  </style>
+</head>
+<body class="light">
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo-icon">🇯🇵</div>
+        <div class="logo-text">Osaka</div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#menu" class="nav-link">Меню</a>
+        <a href="gallery.html" class="nav-link">Галерея</a>
+        <a href="events.html" class="nav-link">События</a>
+        <a href="guide.html" class="nav-link">Кофе-гид</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-btn" id="theme-btn">🌓</button>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="events-hero container">
+    <h1 class="section-title">События</h1>
+    <p class="section-subtitle">Каппинги, мастер-классы и встречи</p>
+  </section>
+
+  <div class="container events-list">
+    <div class="event-card">
+      <div class="event-date">
+        <div class="day">02</div>
+        <div class="month">НОЯ</div>
+      </div>
+      <div>
+        <h3>Каппинг: Эфиопия vs Колумбия</h3>
+        <p>Сравним два лота светлой обжарки. Разберём вкус, кислотность и тело. Для новичков и любителей.</p>
+        <div class="event-meta">19:00 · 800 сом · 12 мест</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">
+        <div class="day">09</div>
+        <div class="month">НОЯ</div>
+      </div>
+      <div>
+        <h3>Мастер-класс: латте-арт</h3>
+        <p>Базовые фигуры: сердце, розетта, тюльпан. Своё молоко и эспрессо, все материалы включены.</p>
+        <div class="event-meta">12:00 · 1500 сом · 8 мест</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">
+        <div class="day">16</div>
+        <div class="month">НОЯ</div>
+      </div>
+      <div>
+        <h3>Вечер с обжарщиком</h3>
+        <p>Как мы выбираем зелёный кофе, профили обжарки и что влияет на вкус в чашке.</p>
+        <div class="event-meta">18:30 · бесплатно · регистрация</div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">
+        <div class="day">23</div>
+        <div class="month">НОЯ</div>
+      </div>
+      <div>
+        <h3>Бранч + фильтр-кофе</h3>
+        <p>Воскресный бранч: выпечка, авокадо-тост и свежий V60. Без спешки, в атмосфере Osaka.</p>
+        <div class="event-meta">11:00–15:00 · по меню</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">🇯🇵 Osaka Coffee</div>
+      <p>© 2026 Osaka Coffee</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
