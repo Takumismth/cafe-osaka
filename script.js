@@ -1,5 +1,4 @@
 // ===== Звуки =====
-// ===== Звуки =====
 function playSound(type) {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
