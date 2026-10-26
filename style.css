@@ -251,6 +251,7 @@ body.dark .cart-count {
 }
 
 .header-inner {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -398,6 +399,44 @@ body.dark .cart-count {
 
 .burger.active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 860px) {
+    .nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 20px;
+        border-radius: 18px;
+        background: rgba(247, 239, 228, 0.98);
+        border: 1px solid rgba(92, 64, 51, 0.08);
+        box-shadow: 0 18px 38px rgba(37, 28, 22, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: all 0.25s ease;
+    }
+
+    body.dark .nav {
+        background: rgba(30, 22, 15, 0.97);
+        border-color: rgba(255, 236, 210, 0.08);
+    }
+
+    .nav.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .burger {
+        display: flex;
+    }
 }
 
 /* ===== Герой ===== */
@@ -998,275 +1037,75 @@ body.dark .cart-count {
 }
 
 .receipt-item span:last-child {
-    font-weight: 500;
-    white-space: nowrap;
+    font-weight: 600;
+    color: #5c4033;
 }
 
 .receipt-total {
     display: flex;
     justify-content: space-between;
-    padding-top: 14px;
-    border-top: 1px dashed #d4c4b0;
+    align-items: center;
     font-size: 16px;
+    font-weight: 700;
     color: #3d2b1f;
-    margin-bottom: 22px;
+    padding-top: 12px;
+    border-top: 1px dashed #d4c4b0;
 }
 
-.receipt-total strong {
-    font-size: 20px;
-    color: #5c4033;
-}
-
-.receipt-footer {
-    text-align: center;
-}
-
-.receipt-footer p {
-    margin-bottom: 4px;
-    color: #5c4033;
-    font-weight: 500;
-}
-
-.receipt-note {
-    font-size: 13px !important;
-    color: #8b7355 !important;
-    font-weight: 400 !important;
-    margin-bottom: 18px !important;
-}
-
-.receipt-footer .btn {
+.receipt-close {
     width: 100%;
-    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
 }
 
-/* ===== Адаптив ===== */
-@media (max-width: 900px) {
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-
-  .about-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .about-img img {
-    height: 280px;
-  }
-
-  .contacts-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .hero-content h1 {
-    font-size: 40px;
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
+@media (max-width: 960px) {
+    .menu-grid,
+    .contacts-grid,
+    .about-inner {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 700px) {
-  .modal-content {
-    grid-template-columns: 1fr;
-  }
+    .menu-grid,
+    .contacts-grid,
+    .about-inner,
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
 
-  .modal-img {
-    padding: 24px 16px;
-    min-height: 200px;
-  }
+    .hero-content h1 {
+        font-size: 42px;
+    }
 
-  .modal-img img {
-    max-height: 200px;
-  }
-
-  .modal-body {
-    padding: 24px 20px 30px;
-  }
-
-  .modal-body h2 {
-    font-size: 20px;
-  }
-
-  .modal-price {
-    font-size: 20px;
-  }
-
-  .modal-body p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
+    .header-inner {
+        height: 66px;
+    }
 }
 
-@media (max-width: 600px) {
-  .menu-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+@media (max-width: 500px) {
+    .event-card {
+        grid-template-columns: 1fr;
+    }
 
-  .burger {
-    display: flex;
-  }
+    .event-date {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
 
-  .nav {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: #1f1610;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 12px 0;
-    transform: translateY(-130%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 236, 210, 0.1);
-    z-index: 99;
-  }
+    .event-date .day {
+        font-size: 22px;
+    }
 
-  body.light .nav {
-    background: #f7efe4;
-    border-bottom: 1px solid rgba(92, 64, 51, 0.1);
-  }
+    .hero-content h1 {
+        font-size: 36px;
+    }
 
-  .nav.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-link {
-    padding: 14px 0;
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-  }
-
-  .hero {
-    height: 380px;
-  }
-
-  .hero-content h1 {
-    font-size: 30px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-    margin-bottom: 24px;
-  }
-
-  .btn-primary {
-    padding: 13px 28px;
-    font-size: 14px;
-  }
-
-  .menu-section {
-    padding: 50px 0 60px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .section-subtitle {
-    font-size: 14px;
-    margin-bottom: 28px;
-  }
-
-  .tabs {
-    gap: 8px;
-    margin-bottom: 28px;
-  }
-
-  .tab {
-    padding: 9px 16px;
-    font-size: 13px;
-  }
-
-  .card-img {
-    height: 200px;
-  }
-
-  .card-body {
-    padding: 16px;
-  }
-
-  .card-body h3 {
-    font-size: 16px;
-  }
-
-  .price {
-    font-size: 18px;
-  }
-
-  .about {
-    padding: 50px 0;
-  }
-
-  .about-text h2 {
-    font-size: 26px;
-  }
-
-  .contacts {
-    padding: 50px 0;
-  }
-
-  .contact-card {
-    padding: 28px 20px;
-  }
-
-  .header-inner {
-    height: 64px;
-  }
-
-  .logo-text {
-    font-size: 18px;
-  }
-
-  .logo-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 15px;
-  }
-
-  .theme-btn,
-  .cart-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
-  }
-
-  .header-right {
-    gap: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart-sidebar {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-  }
-
-  .container {
-    padding: 0 14px;
-  }
-
-  .hero-content h1 {
-    font-size: 26px;
-  }
-
-  .tab {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-
-  .receipt {
-    padding: 22px 16px;
-  }
+    .section-title {
+        font-size: 32px;
+    }
 }
