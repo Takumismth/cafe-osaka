@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход — Osaka Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-page {
+      min-height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .auth-card {
+      background: rgba(255, 248, 240, 0.97);
+      border-radius: 24px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+    .auth-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #5c4033;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .auth-sub {
+      text-align: center;
+      color: #8b7355;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+    .auth-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      background: #efe4d4;
+      padding: 4px;
+      border-radius: 30px;
+    }
+    .auth-tab {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px;
+      border-radius: 26px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8b7355;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .auth-tab.active {
+      background: #5c4033;
+      color: #f7efe4;
+    }
+    .auth-form { display: none; }
+    .auth-form.active { display: block; }
+    .field {
+      margin-bottom: 16px;
+    }
+    .field label {
+      display: block;
+      font-size: 13px;
+      color: #8b7355;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .field input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid #e0d0bc;
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #3d2b1f;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field input:focus {
+      border-color: #c4a484;
+    }
+    .auth-error {
+      background: #fde8e8;
+      color: #b33;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: none;
+    }
+    .auth-error.show { display: block; }
+    .auth-success {
+      background: #e6f4ea;
+      color: #1e7a3a;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: none;
+    }
+    .auth-success.show { display: block; }
+    .auth-submit {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 30px;
+      background: #5c4033;
+      color: #f7efe4;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .auth-submit:hover { background: #3d2b1f; }
+    .auth-note {
+      text-align: center;
+      font-size: 12px;
+      color: #a09080;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body class="light">
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo-icon">🇯🇵</div>
+        <div class="logo-text">Osaka</div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#menu" class="nav-link">Меню</a>
+        <a href="gallery.html" class="nav-link">Галерея</a>
+        <a href="events.html" class="nav-link">События</a>
+        <a href="guide.html" class="nav-link">Кофе-гид</a>
+        <a href="branches.html" class="nav-link">Филиалы</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-btn" id="theme-btn">🌓</button>
+        <a href="login.html" class="nav-link" id="auth-link" style="font-size:14px;">Вход</a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="auth-page">
+    <div class="auth-card">
+      <h1>Osaka Coffee</h1>
+      <p class="auth-sub">Войдите, чтобы копить бонусы</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-form="login">Вход</button>
+        <button class="auth-tab" data-form="register">Регистрация</button>
+      </div>
+
+      <div class="auth-error" id="auth-error"></div>
+      <div class="auth-success" id="auth-success"></div>
+
+      <!-- Вход -->
+      <form class="auth-form active" id="login-form">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label>Пароль</label>
+          <input type="password" id="login-password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="auth-submit">Войти</button>
+      </form>
+
+      <!-- Регистрация -->
+      <form class="auth-form" id="register-form">
+        <div class="field">
+          <label>Имя</label>
+          <input type="text" id="reg-name" placeholder="Как к вам обращаться" required>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="reg-email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label>Пароль</label>
+          <input type="password" id="reg-password" placeholder="Минимум 6 символов" required minlength="6">
+        </div>
+        <button type="submit" class="auth-submit">Создать аккаунт</button>
+      </form>
+
+      <p class="auth-note">Демо: данные хранятся только в браузере</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const errorEl = document.getElementById('auth-error');
+    const successEl = document.getElementById('auth-success');
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('show');
+      successEl.classList.remove('show');
+    }
+    function showSuccess(msg) {
+      successEl.textContent = msg;
+      successEl.classList.add('show');
+      errorEl.classList.remove('show');
+    }
+    function hideMessages() {
+      errorEl.classList.remove('show');
+      successEl.classList.remove('show');
+    }
+
+    // Табы
+    document.querySelectorAll('.auth-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.form + '-form').classList.add('active');
+        hideMessages();
+      });
+    });
+
+    // Регистрация
+    document.getElementById('register-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim().toLowerCase();
+      const password = document.getElementById('reg-password').value;
+
+      if (password.length < 6) {
+        showError('Пароль минимум 6 символов');
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('osaka_users') || '[]');
+      if (users.find(u => u.email === email)) {
+        showError('Такой email уже зарегистрирован');
+        return;
+      }
+
+      users.push({ name, email, password, bonuses: 50 });
+      localStorage.setItem('osaka_users', JSON.stringify(users));
+      localStorage.setItem('osaka_user', JSON.stringify({ name, email, bonuses: 50 }));
+
+      showSuccess('Аккаунт создан! Бонус: 50 баллов');
+      setTimeout(() => { window.location.href = 'account.html'; }, 900);
+    });
+
+    // Вход
+    document.getElementById('login-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim().toLowerCase();
+      const password = document.getElementById('login-password').value;
+
+      const users = JSON.parse(localStorage.getItem('osaka_users') || '[]');
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (!user) {
+        showError('Неверный email или пароль');
+        return;
+      }
+
+      localStorage.setItem('osaka_user', JSON.stringify({
+        name: user.name,
+        email: user.email,
+        bonuses: user.bonuses || 0
+      }));
+
+      showSuccess('С возвращением, ' + user.name + '!');
+      setTimeout(() => { window.location.href = 'account.html'; }, 800);
+    });
+
+    // Если уже вошёл — на аккаунт
+    if (localStorage.getItem('osaka_user')) {
+      window.location.href = 'account.html';
+    }
+  </script>
+</body>
+</html>
