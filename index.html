@@ -14,28 +14,26 @@
     <header class="header">
         <div class="container header-inner">
             <a href="#" class="logo" id="logo">
-                <div class="logo-icon">💮</div>
+                <div class="logo-icon">🇯🇵</div>
                 <div class="logo-text">Osaka</div>
             </a>
 
-           <nav class="nav" id="nav">
+            <nav class="nav" id="nav">
                 <a href="#menu" class="nav-link">Меню</a>
                 <a href="gallery.html" class="nav-link">Галерея</a>
                 <a href="events.html" class="nav-link">События</a>
                 <a href="guide.html" class="nav-link">Кофе-гид</a>
+                <a href="branches.html" class="nav-link">Филиалы</a>
                 <a href="#contacts" class="nav-link">Контакты</a>
-               <a href="branches.html" class="nav-link">Филиалы</a>
-               <a href="login.html" class="nav-link" id="auth-link" style="font-size:14px;">Вход</a>
             </nav>
 
             <div class="header-right">
                 <button class="theme-btn" id="theme-btn" title="Сменить тему">🌓</button>
-
+                <a href="login.html" class="nav-link" id="auth-link" style="font-size:14px;">Вход</a>
                 <button class="cart-btn" id="cart-btn">
                     <span>🛒</span>
                     <span class="cart-count" id="cart-count">0</span>
                 </button>
-
                 <button class="burger" id="burger" aria-label="Меню">
                     <span></span>
                     <span></span>
@@ -45,18 +43,20 @@
         </div>
     </header>
 
+    <!-- Герой -->
     <section class="hero">
         <div class="container hero-content">
-            <h1><strong>Кофейня, в которой<br>хочется остаться</strong></h1>
+            <h1>Кофе, который<br>хочется пить</h1>
             <p>Свежая обжарка • Авторские напитки • Уютная атмосфера</p>
             <a href="#menu" class="btn btn-primary">Смотреть меню</a>
         </div>
     </section>
 
+    <!-- Меню -->
     <section class="menu-section" id="menu">
         <div class="container">
             <h2 class="section-title">Меню</h2>
-            <p class="section-subtitle">Выбери свой вкус</p>
+            <p class="section-subtitle">Выбери свой вайб</p>
 
             <div class="tabs">
                 <button class="tab active" data-tab="coffee">Кофе</button>
@@ -69,73 +69,73 @@
             <!-- Кофе -->
             <div class="tab-content active" id="coffee">
                 <div class="menu-grid">
-                    <div class="card" data-name="Эспрессо" data-desc="Классический двойной шот эспрессо. Насыщенный, плотный, с богатой крема." data-price="180сом" data-img="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Эспрессо" data-desc="Классический двойной шот эспрессо. Насыщенный, плотный, с богатой крема." data-price="180 ₽" data-img="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&h=800&fit=crop" alt="Эспрессо"></div>
                         <div class="card-body">
                             <h3>Эспрессо</h3>
                             <p>Классический двойной шот</p>
                             <div class="card-footer">
-                                <div class="price">180 сом <fdiv>
+                                <div class="price">180 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card" data-name="Американо" data-desc="Эспрессо, разбавленный горячей водой. Мягкий и чистый вкус." data-price="200 сом" data-img="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Американо" data-desc="Эспрессо, разбавленный горячей водой. Мягкий и чистый вкус." data-price="200 ₽" data-img="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&h=800&fit=crop" alt="Американо"></div>
                         <div class="card-body">
                             <h3>Американо</h3>
                             <p>Эспрессо с горячей водой</p>
                             <div class="card-footer">
-                                <div class="price">200 сом</div>
+                                <div class="price">200 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card" data-name="Капучино" data-desc="Идеальный баланс эспрессо, молока и нежной пены." data-price="230 сом" data-img="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Капучино" data-desc="Идеальный баланс эспрессо, молока и нежной пены." data-price="230 ₽" data-img="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&h=800&fit=crop" alt="Капучино"></div>
                         <div class="card-body">
                             <h3>Капучино</h3>
                             <p>Идеальный баланс молока и кофе</p>
                             <div class="card-footer">
-                                <div class="price">230 сом</div>
+                                <div class="price">230 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card" data-name="Латте" data-desc="Мягкий и сливочный. Больше молока, меньше интенсивности." data-price="250 сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(5).jfif?h=1068">
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(5).jfif?h=1068" alt="latte" height="1068" /></div>
+                    <div class="card" data-name="Латте" data-desc="Мягкий и сливочный. Больше молока, меньше интенсивности." data-price="250 ₽" data-img="https://images.unsplash.com/photo-1561882468-aa0c629074c4?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1561882468-aa0c629074c4?w=800&h=800&fit=crop" alt="Латте"></div>
                         <div class="card-body">
                             <h3>Латте</h3>
                             <p>Нежный молочный кофе</p>
                             <div class="card-footer">
-                                <div class="price">250 сом</div>
+                                <div class="price">250 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card" data-name="Флэт Уайт" data-desc="Двойной эспрессо и тонкая бархатистая микропена." data-price="260 сом" data-img="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Флэт Уайт" data-desc="Двойной эспрессо и тонкая бархатистая микропена." data-price="260 ₽" data-img="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&h=800&fit=crop" alt="Флэт Уайт"></div>
                         <div class="card-body">
                             <h3>Флэт Уайт</h3>
                             <p>Двойной эспрессо + микропена</p>
                             <div class="card-footer">
-                                <div class="price">260 сом</div>
+                                <div class="price">260 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card" data-name="Раф" data-desc="Сливочный кофе с ванилью. Готовится на основе эспрессо и сливок." data-price="270 сом" data-img="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Раф" data-desc="Сливочный кофе с ванилью." data-price="270 ₽" data-img="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800&h=800&fit=crop" alt="Раф"></div>
                         <div class="card-body">
                             <h3>Раф</h3>
                             <p>Сливочный кофе с ванилью</p>
                             <div class="card-footer">
-                                <div class="price">270 сом</div>
+                                <div class="price">270 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
@@ -146,49 +146,46 @@
             <!-- Авторские -->
             <div class="tab-content" id="signature">
                 <div class="menu-grid">
-                    <div class="card" data-name="Латте «Карамель»" data-desc="Латте с домашней солёной карамелью. Сладкий и глубокий вкус." data-price="280 сом" data-img="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Латте «Карамель»" data-desc="Латте с домашней солёной карамелью." data-price="280 ₽" data-img="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&h=800&fit=crop" alt="Латте Карамель"></div>
                         <div class="card-body">
                             <h3>Латте «Карамель»</h3>
                             <p>С домашней солёной карамелью</p>
                             <div class="card-footer">
-                                <div class="price">280 сом</div>
+                                <div class="price">280 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Мокко" data-desc="Эспрессо, молоко и настоящий шоколад." data-price="300 сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(4).jfif?h=1068" height="1068">
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(4).jfif?h=1068" height="1068"  alt="Мокко"></div>
+                    <div class="card" data-name="Мокко" data-desc="Эспрессо, молоко и шоколад." data-price="300 ₽" data-img="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3008?w=800&h=800&fit=crop" alt="Мокко"></div>
                         <div class="card-body">
                             <h3>Мокко</h3>
                             <p>Эспрессо, молоко и шоколад</p>
                             <div class="card-footer">
-                                <div class="price">300 сом</div>
+                                <div class="price">300 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Матча Латте" data-desc="Японский чай матча премиум с молоком." data-price="290 сом" data-img="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Матча Латте" data-desc="Японский чай матча с молоком." data-price="290 ₽" data-img="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=800&h=800&fit=crop" alt="Матча Латте"></div>
                         <div class="card-body">
                             <h3>Матча Латте</h3>
                             <p>Японский чай матча премиум</p>
                             <div class="card-footer">
-                                <div class="price">290 сом</div>
+                                <div class="price">290 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Лавандовый Раф" data-desc="Сливочный раф с натуральной лавандой." data-price="310 сом" data-img="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Лавандовый Раф" data-desc="Сливочный раф с лавандой." data-price="310 ₽" data-img="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&h=800&fit=crop" alt="Лавандовый Раф"></div>
                         <div class="card-body">
                             <h3>Лавандовый Раф</h3>
                             <p>С лавандовым сиропом</p>
                             <div class="card-footer">
-                                <div class="price">310 сом</div>
+                                <div class="price">310 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
@@ -199,49 +196,46 @@
             <!-- Холодные -->
             <div class="tab-content" id="cold">
                 <div class="menu-grid">
-                    <div class="card" data-name="Айс Латте" data-desc="Холодный латте со льдом. Лёгкий и освежающий." data-price="270 сом" data-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Айс Латте" data-desc="Холодный латте со льдом." data-price="270 ₽" data-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&h=800&fit=crop" alt="Айс Латте"></div>
                         <div class="card-body">
                             <h3>Айс Латте</h3>
                             <p>Холодный латте со льдом</p>
                             <div class="card-footer">
-                                <div class="price">270 сом</div>
+                                <div class="price">270 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Бамбл" data-desc="Эспрессо + апельсиновый сок + лёд." data-price="290 сом" data-img="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Бамбл" data-desc="Эспрессо + апельсиновый сок + лёд." data-price="290 ₽" data-img="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&h=800&fit=crop" alt="Бамбл"></div>
                         <div class="card-body">
                             <h3>Бамбл</h3>
                             <p>Эспрессо и апельсиновый сок</p>
                             <div class="card-footer">
-                                <div class="price">290 сом</div>
+                                <div class="price">290 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Эспрессо Тоник" data-desc="Эспрессо с тоником и льдом. Горько-свежий." data-price="280 сом" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Эспрессо Тоник" data-desc="Эспрессо с тоником и льдом." data-price="280 ₽" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=800&fit=crop" alt="Эспрессо Тоник"></div>
                         <div class="card-body">
                             <h3>Эспрессо Тоник</h3>
                             <p>Кофе с тоником</p>
                             <div class="card-footer">
-                                <div class="price">280 сом</div>
+                                <div class="price">280 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Колд Брю" data-desc="Холодное заваривание 12 часов. Мягкий и сладковатый." data-price="300 сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(6).jfif?h=1068">
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(6).jfif?h=1068" alt="cold brew" height="1068" /></div>
+                    <div class="card" data-name="Колд Брю" data-desc="Холодное заваривание 12 часов." data-price="300 ₽" data-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800&h=800&fit=crop" alt="Колд Брю"></div>
                         <div class="card-body">
                             <h3>Колд Брю</h3>
                             <p>Холодное заваривание 12 часов</p>
                             <div class="card-footer">
-                                <div class="price">300 сом</div>
+                                <div class="price">300 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
@@ -250,241 +244,191 @@
             </div>
 
             <!-- Выпечка -->
-<div class="tab-content" id="food">
-    <div class="menu-grid">
-
-        <div class="card" data-name="Круассан классический" data-desc="Свежий слоёный круассан с хрустящей корочкой. Идеально к утреннему кофе." data-price="190 сом" data-img="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=800&fit=crop" alt="Круассан"></div>
-            <div class="card-body">
-                <h3>Круассан классический</h3>
-                <p>Свежая выпечка</p>
-                <div class="card-footer">
-                    <div class="price">190 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Круассан с миндалём" data-desc="Круассан с миндальным кремом и лепестками миндаля." data-price="240 сом" data-img="https://images.unsplash.com/photo-1623334044303-241021148421?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(7).jfif" alt="Миндальный круассан"></div>
-            <div class="card-body">
-                <h3>Круассан с миндалём</h3>
-                <p>С миндальным кремом</p>
-                <div class="card-footer">
-                    <div class="price">240 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Синабон" data-desc="Мягкая булочка с корицей и сливочной глазурью." data-price="260 сом" data-img="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=800&h=800&fit=crop" alt="Синабон"></div>
-            <div class="card-body">
-                <h3>Синабон</h3>
-                <p>С корицей и глазурью</p>
-                <div class="card-footer">
-                    <div class="price">260 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Чизкейк Нью-Йорк" data-desc="Классический плотный чизкейк на песочной основе." data-price="320 сом" data-img="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&h=800&fit=crop" alt="Чизкейк"></div>
-            <div class="card-body">
-                <h3>Чизкейк Нью-Йорк</h3>
-                <p>Классический</p>
-                <div class="card-footer">
-                    <div class="price">320 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Брауни" data-desc="Шоколадный брауни с хрустящей корочкой и влажной серединой." data-price="220 сом" data-img="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&h=800&fit=crop" alt="Брауни"></div>
-            <div class="card-body">
-                <h3>Брауни</h3>
-                <p>Шоколадный</p>
-                <div class="card-footer">
-                    <div class="price">220 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Тирамису" data-desc="Классический итальянский десерт с маскарпоне и кофейной пропиткой." data-price="340сом" data-img="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&h=800&fit=crop" alt="Тирамису"></div>
-            <div class="card-body">
-                <h3>Тирамису</h3>
-                <p>С маскарпоне</p>
-                <div class="card-footer">
-                    <div class="price">340 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Маффин черничный" data-desc="Нежный маффин с сочной черникой. Идеально к капучино." data-price="210сом" data-img="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=800&h=800&fit=crop" alt="Маффин"></div>
-            <div class="card-body">
-                <h3>Маффин черничный</h3>
-                <p>С черникой</p>
-                <div class="card-footer">
-                    <div class="price">210сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Печенье шоколадное" data-desc="Хрустящее печенье с кусочками тёмного шоколада." data-price="150сом" data-img="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&h=800&fit=crop" alt="Печенье"></div>
-            <div class="card-body">
-                <h3>Печенье шоколадное</h3>
-                <p>С кусочками шоколада</p>
-                <div class="card-footer">
-                    <div class="price">150 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Сэндвич с курицей" data-desc="Свежий сэндвич с курицей, овощами и соусом на чиабатте." data-price="290сом" data-img="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&h=800&fit=crop" alt="Сэндвич"></div>
-            <div class="card-body">
-                <h3>Сэндвич с курицей</h3>
-                <p>На чиабатте</p>
-                <div class="card-footer">
-                    <div class="price">290 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Авокадо тост" data-desc="Тост с авокадо, яйцом пашот и микрозеленью." data-price="310 сом" data-img="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&h=800&fit=crop" alt="Авокадо тост"></div>
-            <div class="card-body">
-                <h3>Авокадо тост</h3>
-                <p>С яйцом пашот</p>
-                <div class="card-footer">
-                    <div class="price">310 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Панкейки" data-desc="Пышные панкейки с кленовым сиропом и ягодами." data-price="280 сом" data-img="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=800&fit=crop" alt="Панкейки"></div>
-            <div class="card-body">
-                <h3>Панкейки</h3>
-                <p>С ягодами и сиропом</p>
-                <div class="card-footer">
-                    <div class="price">280 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-name="Французский тост" data-desc="Французский тост с карамелизированными бананами." data-price="270сом" data-img="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&h=800&fit=crop">
-            <div class="card-img"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&h=800&fit=crop" alt="Французский тост"></div>
-            <div class="card-body">
-                <h3>Французский тост</h3>
-                <p>С бананами</p>
-                <div class="card-footer">
-                    <div class="price">270 сом</div>
-                    <button class="btn btn-sm add-to-cart">В корзину</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-            <!-- Каталог -->
-            <div class="tab-content" id="catalog">
+            <div class="tab-content" id="food">
                 <div class="menu-grid">
-                    <div class="card" data-name="Эфиопия Yirgacheffe" data-desc="Светлая обжарка. Цветочные ноты, цитрус и высокая кислотность." data-price="890сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/ethiopian-yirgacheffe-coffee-strength-3-medium-roastbrown-bear-coffeebrowbeth8227-566747.webp?h=1068">
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/ethiopian-yirgacheffe-coffee-strength-3-medium-roastbrown-bear-coffeebrowbeth8227-566747.webp?h=1068" alt="зерна эфиопия" height="1068" /></div>
+                    <div class="card" data-name="Круассан классический" data-desc="Свежий слоёный круассан." data-price="190 ₽" data-img="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=800&fit=crop" alt="Круассан"></div>
                         <div class="card-body">
-                            <h3>Эфиопия Yirgacheffe</h3>
-                            <p>250 г • Светлая обжарка</p>
+                            <h3>Круассан классический</h3>
+                            <p>Свежая выпечка</p>
                             <div class="card-footer">
-                                <div class="price">890сом</div>
+                                <div class="price">190 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
+                    <div class="card" data-name="Круассан с миндалём" data-desc="С миндальным кремом." data-price="240 ₽" data-img="https://images.unsplash.com/photo-1623334044303-241021148421?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1623334044303-241021148421?w=800&h=800&fit=crop" alt="Миндальный круассан"></div>
+                        <div class="card-body">
+                            <h3>Круассан с миндалём</h3>
+                            <p>С миндальным кремом</p>
+                            <div class="card-footer">
+                                <div class="price">240 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Синабон" data-desc="С корицей и глазурью." data-price="260 ₽" data-img="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=800&h=800&fit=crop" alt="Синабон"></div>
+                        <div class="card-body">
+                            <h3>Синабон</h3>
+                            <p>С корицей и глазурью</p>
+                            <div class="card-footer">
+                                <div class="price">260 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Чизкейк Нью-Йорк" data-desc="Классический плотный чизкейк." data-price="320 ₽" data-img="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&h=800&fit=crop" alt="Чизкейк"></div>
+                        <div class="card-body">
+                            <h3>Чизкейк Нью-Йорк</h3>
+                            <p>Классический</p>
+                            <div class="card-footer">
+                                <div class="price">320 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Брауни" data-desc="Шоколадный брауни." data-price="220 ₽" data-img="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&h=800&fit=crop" alt="Брауни"></div>
+                        <div class="card-body">
+                            <h3>Брауни</h3>
+                            <p>Шоколадный</p>
+                            <div class="card-footer">
+                                <div class="price">220 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Тирамису" data-desc="С маскарпоне и кофе." data-price="340 ₽" data-img="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&h=800&fit=crop" alt="Тирамису"></div>
+                        <div class="card-body">
+                            <h3>Тирамису</h3>
+                            <p>С маскарпоне</p>
+                            <div class="card-footer">
+                                <div class="price">340 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Сэндвич с курицей" data-desc="На чиабатте с овощами." data-price="290 ₽" data-img="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&h=800&fit=crop" alt="Сэндвич"></div>
+                        <div class="card-body">
+                            <h3>Сэндвич с курицей</h3>
+                            <p>На чиабатте</p>
+                            <div class="card-footer">
+                                <div class="price">290 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Авокадо тост" data-desc="С яйцом пашот." data-price="310 ₽" data-img="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&h=800&fit=crop" alt="Авокадо тост"></div>
+                        <div class="card-body">
+                            <h3>Авокадо тост</h3>
+                            <p>С яйцом пашот</p>
+                            <div class="card-footer">
+                                <div class="price">310 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Панкейки" data-desc="С ягодами и сиропом." data-price="280 ₽" data-img="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=800&fit=crop" alt="Панкейки"></div>
+                        <div class="card-body">
+                            <h3>Панкейки</h3>
+                            <p>С ягодами и сиропом</p>
+                            <div class="card-footer">
+                                <div class="price">280 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="card" data-name="Колумбия Supremo" data-desc="Средняя обжарка. Шоколад, орех и карамель." data-price="790сом" data-img="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=800&fit=crop">
+            <!-- Каталог -->
+            <div class="tab-content" id="catalog">
+                <div class="menu-grid">
+                    <div class="card" data-name="Эфиопия Yirgacheffe" data-desc="Светлая обжарка. Цветочные ноты." data-price="890 ₽" data-img="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=800&fit=crop" alt="Эфиопия"></div>
+                        <div class="card-body">
+                            <h3>Эфиопия Yirgacheffe</h3>
+                            <p>250 г • Светлая обжарка</p>
+                            <div class="card-footer">
+                                <div class="price">890 ₽</div>
+                                <button class="btn btn-sm add-to-cart">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" data-name="Колумбия Supremo" data-desc="Средняя обжарка. Шоколад и орех." data-price="790 ₽" data-img="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=800&fit=crop" alt="Колумбия"></div>
                         <div class="card-body">
                             <h3>Колумбия Supremo</h3>
                             <p>250 г • Средняя обжарка</p>
                             <div class="card-footer">
-                                <div class="price">790сом</div>
+                                <div class="price">790 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Бразилия Santos" data-desc="Тёмная обжарка. Плотный, с нотами какао." data-price="720сом" data-img="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=800&h=800&fit=crop">
+                    <div class="card" data-name="Бразилия Santos" data-desc="Тёмная обжарка. Какао." data-price="720 ₽" data-img="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=800&h=800&fit=crop">
                         <div class="card-img"><img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=800&h=800&fit=crop" alt="Бразилия"></div>
                         <div class="card-body">
                             <h3>Бразилия Santos</h3>
                             <p>250 г • Тёмная обжарка</p>
                             <div class="card-footer">
-                                <div class="price">720сом</div>
+                                <div class="price">720 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Сироп «Ваниль»" data-desc="Натуральный ванильный сироп." data-price="450сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/syrup-vanilla-1.png?h=1068">
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/syrup-vanilla-1.png?h=1068" alt="Сироп Ваниль"></div>
+                    <div class="card" data-name="Сироп «Ваниль»" data-desc="Натуральный ванильный сироп." data-price="450 ₽" data-img="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&h=800&fit=crop" alt="Сироп Ваниль"></div>
                         <div class="card-body">
                             <h3>Сироп «Ваниль»</h3>
                             <p>1 л • Натуральный</p>
                             <div class="card-footer">
-                                <div class="price">450сом</div>
+                                <div class="price">450 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Сироп «Карамель»" data-desc="Солёная карамель." data-price="480сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(1).jfif?h=1068" alt="caramel syrop" height="1068">
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(1).jfif?h=1068" alt="caramel syrop" height="1068" /></div>
+                    <div class="card" data-name="Сироп «Карамель»" data-desc="Солёная карамель." data-price="480 ₽" data-img="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&h=800&fit=crop" alt="Сироп Карамель"></div>
                         <div class="card-body">
                             <h3>Сироп «Карамель»</h3>
                             <p>1 л • Солёная карамель</p>
                             <div class="card-footer">
-                                <div class="price">480сом</div>
+                                <div class="price">480 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-name="Матча премиум" data-desc="Церемониальный японский матча." data-price="1200сом" data-img="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(3).jfif?h=1068" alt="" height="1068" />
-                        <div class="card-img"><img src="https://6ad4bf07106919c03a914ec5.imgix.net/sandbox/images%20(3).jfif?h=1068" alt="" height="1068" /></div>
+                    <div class="card" data-name="Матча премиум" data-desc="Церемониальный японский матча." data-price="1200 ₽" data-img="https://images.unsplash.com/photo-1564890367538-355eadbc0b2d?w=800&h=800&fit=crop">
+                        <div class="card-img"><img src="https://images.unsplash.com/photo-1564890367538-355eadbc0b2d?w=800&h=800&fit=crop" alt="Матча"></div>
                         <div class="card-body">
                             <h3>Матча премиум</h3>
                             <p>50 г • Ceremonial grade</p>
                             <div class="card-footer">
-                                <div class="price">1200сом</div>
+                                <div class="price">1200 ₽</div>
                                 <button class="btn btn-sm add-to-cart">В корзину</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- О нас -->
     <section class="about" id="about">
         <div class="container about-inner">
             <div class="about-text">
                 <h2>О кофейне</h2>
-                <p>Osaka Coffee — это место, где японская эстетика встречается с качественным кофе. Мы сами обжариваем зёрна и готовим напитки, которые хочется пить снова и снова.</p>
-                <p>Минимализм, внимание к деталям и тёплая атмосфера, в которой хочется задержаться.</p>
+                <p>Osaka Coffee — место, где японская эстетика встречается с качественным кофе. Мы сами обжариваем зёрна и готовим напитки, которые хочется пить снова и снова.</p>
+                <p>Минимализм, внимание к деталям и тёплая атмосфера.</p>
             </div>
             <div class="about-img">
                 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&h=700&fit=crop" alt="Интерьер">
@@ -492,6 +436,7 @@
         </div>
     </section>
 
+    <!-- Контакты -->
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
@@ -509,20 +454,21 @@
                 <div class="contact-card">
                     <div class="contact-icon">📞</div>
                     <h3>Телефон</h3>
-                    <p>+996 704 566 559<br>WhatsApp пж скиньте денег</p>
+                    <p>+996 555 123 456<br>WhatsApp / Telegram</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">💮 Osaka Coffee</div>
-            <p>© 2026 Osaka Coffee. Все права защищены. кутя гений</p>
+            <div class="footer-logo">🇯🇵 Osaka Coffee</div>
+            <p>© 2026 Osaka Coffee. Все права защищены.</p>
         </div>
     </footer>
 
-    <!-- Модалка -->
+    <!-- Модалка товара -->
     <div class="modal-overlay" id="modal">
         <div class="modal">
             <button class="modal-close" id="modal-close">×</button>
@@ -539,45 +485,45 @@
             </div>
         </div>
     </div>
-<div class="cart-overlay" id="cart-overlay">
-    <div class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Корзина</h3>
-            <button class="cart-close" id="cart-close">×</button>
-        </div>
 
-        <div class="cart-items" id="cart-items">
-            <!-- товары будут добавляться сюда -->
-        </div>
-
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Итого:</span>
-                <strong id="cart-total">0сом</strong>
+    <!-- Корзина -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Корзина</h3>
+                <button class="cart-close" id="cart-close">×</button>
             </div>
-            <button class="btn btn-primary cart-checkout" id="cart-checkout">Оформить заказ</button>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <strong id="cart-total">0 ₽</strong>
+                </div>
+                <button class="btn btn-primary" id="cart-checkout">Оформить заказ</button>
+            </div>
         </div>
     </div>
-</div>
+
     <!-- Чек -->
-<div class="receipt-overlay" id="receipt-overlay">
-    <div class="receipt">
-        <div class="receipt-header">
-            <div class="receipt-logo">💮 Osaka Coffee</div>
-            <div class="receipt-title">Чек заказа</div>
-        </div>
-        <div class="receipt-body" id="receipt-body"></div>
-        <div class="receipt-total">
-            <span>Итого</span>
-            <strong id="receipt-total">0сом</strong>
-        </div>
-        <div class="receipt-footer">
-            <p>Спасибо за заказ!</p>
-            <p class="receipt-note">Мы свяжемся с вами для подтверждения</p>
-            <button class="btn btn-primary" id="receipt-close">Закрыть</button>
+    <div class="receipt-overlay" id="receipt-overlay">
+        <div class="receipt">
+            <div class="receipt-header">
+                <div class="receipt-logo">🇯🇵 Osaka Coffee</div>
+                <div class="receipt-title">Чек заказа</div>
+            </div>
+            <div class="receipt-body" id="receipt-body"></div>
+            <div class="receipt-total">
+                <span>Итого</span>
+                <strong id="receipt-total">0 ₽</strong>
+            </div>
+            <div class="receipt-footer">
+                <p>Спасибо за заказ!</p>
+                <p class="receipt-note">Мы свяжемся с вами для подтверждения</p>
+                <button class="btn btn-primary" id="receipt-close">Закрыть</button>
+            </div>
         </div>
     </div>
-</div>
+
     <script src="script.js"></script>
 </body>
 </html>
