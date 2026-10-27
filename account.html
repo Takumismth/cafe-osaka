@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кабинет — Osaka Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .account-page { padding: 60px 20px 80px; max-width: 560px; margin: 0 auto; }
+    .account-card {
+      background: rgba(255,248,240,0.97);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .account-avatar {
+      width: 72px; height: 72px;
+      background: #5c4033;
+      color: #f7efe4;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 600;
+      margin: 0 auto 16px;
+    }
+    .account-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #5c4033;
+      margin-bottom: 6px;
+    }
+    .account-email { color: #8b7355; font-size: 14px; margin-bottom: 28px; }
+    .bonus-box {
+      background: #efe4d4;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .bonus-box .label { font-size: 13px; color: #8b7355; margin-bottom: 4px; }
+    .bonus-box .value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #5c4033;
+    }
+    .account-actions { display: flex; flex-direction: column; gap: 10px; }
+    .account-actions a, .account-actions button {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: center;
+    }
+    .btn-main { background: #5c4033; color: #f7efe4; }
+    .btn-main:hover { background: #3d2b1f; }
+    .btn-out {
+      background: transparent;
+      color: #8b7355;
+      border: 1.5px solid #d4c4b0 !important;
+    }
+  </style>
+</head>
+<body class="light">
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo-icon">🇯🇵</div>
+        <div class="logo-text">Osaka</div>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html#menu" class="nav-link">Меню</a>
+        <a href="gallery.html" class="nav-link">Галерея</a>
+        <a href="events.html" class="nav-link">События</a>
+        <a href="guide.html" class="nav-link">Кофе-гид</a>
+        <a href="branches.html" class="nav-link">Филиалы</a>
+        <a href="index.html#contacts" class="nav-link">Контакты</a>
+      </nav>
+      <div class="header-right">
+        <button class="theme-btn" id="theme-btn">🌓</button>
+        <a href="account.html" class="nav-link" id="auth-link" style="font-size:14px;">Кабинет</a>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="account-page">
+    <div class="account-card">
+      <div class="account-avatar" id="avatar">?</div>
+      <h1 id="user-name">Гость</h1>
+      <p class="account-email" id="user-email">—</p>
+
+      <div class="bonus-box">
+        <div class="label">Бонусные баллы</div>
+        <div class="value" id="user-bonuses">0</div>
+      </div>
+
+      <div class="account-actions">
+        <a href="index.html#menu" class="btn-main">В меню</a>
+        <button class="btn-out" id="logout-btn">Выйти</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem('osaka_user') || 'null');
+    if (!user) {
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('user-name').textContent = user.name;
+      document.getElementById('user-email').textContent = user.email;
+      document.getElementById('user-bonuses').textContent = user.bonuses || 0;
+      document.getElementById('avatar').textContent = (user.name || '?')[0].toUpperCase();
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('osaka_user');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
