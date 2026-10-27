@@ -187,7 +187,7 @@ function updateCart() {
 
   if (cart.length === 0) {
     cartItems.innerHTML = '<div class="cart-empty">Корзина пуста</div>';
-    cartTotal.textContent = '0 ₽';
+    cartTotal.textContent = '0 сом';
     return;
   }
 
@@ -208,7 +208,7 @@ function updateCart() {
     `;
     cartItems.appendChild(div);
   });
-  cartTotal.textContent = total + ' ₽';
+  cartTotal.textContent = total + ' сом';
 
   document.querySelectorAll('.cart-item-remove').forEach(btn => {
     btn.onclick = () => {
@@ -280,10 +280,10 @@ if (cartCheckout) {
       total += lineTotal;
       const row = document.createElement('div');
       row.className = 'receipt-item';
-      row.innerHTML = `<span>${item.name}${item.qty > 1 ? ' ×' + item.qty : ''}</span><span>${lineTotal} ₽</span>`;
+      row.innerHTML = `<span>${item.name}${item.qty > 1 ? ' ×' + item.qty : ''}</span><span>${lineTotal} сом</span>`;
       receiptBody.appendChild(row);
     });
-    receiptTotalEl.textContent = total + ' ₽';
+    receiptTotalEl.textContent = total + ' сом';
     closeCart();
     receiptOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
