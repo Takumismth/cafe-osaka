@@ -33,7 +33,14 @@ function playSound(type) {
     }
   } catch (e) {}
 }
+// Уведомление на почту
+const EMAILJS_PUBLIC_KEY = 'ztjUvgFFG22wBJeXf';
+const EMAILJS_SERVICE_ID = 'service_xqqezwp';
+const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
 
+if (typeof emailjs !== 'undefined') {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
 // ===== Тема =====
 const body = document.body;
 const savedTheme = localStorage.getItem('theme') || 'light';
