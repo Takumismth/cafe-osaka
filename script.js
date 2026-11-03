@@ -300,7 +300,6 @@ if (cartCheckout) {
       return `${item.name}${item.qty > 1 ? ' ×' + item.qty : ''} — ${lineTotal} сом`;
     }).join('\n');
 
-    // Письмо
     try {
       if (typeof emailjs === 'undefined') {
         throw new Error('EmailJS не загружен');
@@ -318,41 +317,8 @@ if (cartCheckout) {
     }
 
     playSound('success');
-// Сохранить заказ в историю
-const user = JSON.parse(localStorage.getItem('osaka_user') || 'null');
-const orderRecord = {
-  id: Date.now(),
-  date: new Date().toLocaleString('ru-RU'),
-  name: name,
-  phone: phone,
-  items: cart.map(item => ({
-    name: item.name,
-    qty: item.qty || 1,
-    price: item.price
-  })),
-  total: total,
-  email: user ? user.email : null
-};
 
-const allOrders = JSON.parse(localStorage.getItem('osaka_orders') || '[]');
-allOrders.unshift(orderRecord);
-localStorage.setItem('osaka_orders', JSON.stringify(allOrders));
-
-// Бонусы: +1 балл за каждые 100 сом
-if (user) {
-  const bonusAdd = Math.floor(total / 100);
-  user.bonuses = (user.bonuses || 0) + bonusAdd;
-  localStorage.setItem('osaka_user', JSON.stringify(user));
-
-  // обновить в списке users
-  const users = JSON.parse(localStorage.getItem('osaka_users') || '[]');
-  const u = users.find(x => x.email === user.email);
-  if (u) {
-    u.bonuses = user.bonuses;
-    localStorage.setItem('osaka_users', JSON.stringify(users));
-  }
-}
-    // История заказов + бонусы
+    // История + бонусы
     const user = JSON.parse(localStorage.getItem('osaka_user') || 'null');
     const orderRecord = {
       id: Date.now(),
@@ -367,6 +333,7 @@ if (user) {
       total: total,
       email: user ? user.email : null
     };
+
     const allOrders = JSON.parse(localStorage.getItem('osaka_orders') || '[]');
     allOrders.unshift(orderRecord);
     localStorage.setItem('osaka_orders', JSON.stringify(allOrders));
@@ -375,6 +342,7 @@ if (user) {
       const bonusAdd = Math.floor(total / 100);
       user.bonuses = (user.bonuses || 0) + bonusAdd;
       localStorage.setItem('osaka_user', JSON.stringify(user));
+
       const users = JSON.parse(localStorage.getItem('osaka_users') || '[]');
       const u = users.find(x => x.email === user.email);
       if (u) {
@@ -383,7 +351,7 @@ if (user) {
       }
     }
 
-    // Чек на экране
+    // Чек
     if (receiptBody && receiptTotalEl && receiptOverlay) {
       receiptBody.innerHTML = '';
       cart.forEach(item => {
