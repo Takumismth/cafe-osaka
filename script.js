@@ -1,4 +1,4 @@
-// ===== EmailJS (подставь свои ключи) =====
+// ===== блок уведомления =====
 const EMAILJS_PUBLIC_KEY = 'ztjUvgFFG22wBJeXf';
 const EMAILJS_SERVICE_ID = 'service_xqqezwp';
 const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
@@ -6,7 +6,6 @@ const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
 if (typeof emailjs !== 'undefined') {
   emailjs.init(EMAILJS_PUBLIC_KEY);
 }
-
 // ===== Звуки =====
 function playSound(type) {
   try {
