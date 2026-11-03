@@ -302,7 +302,7 @@ if (cartCheckout) {
     // Отправка на почту
     try {
       if (typeof emailjs !== 'undefined' &&
-          EMAILJS_PUBLIC_KEY !== 'ТВОЙ_PUBLIC_KEY') {
+          EMAILJS_PUBLIC_KEY !== 'ztjUvgFFG22wBJeXf') {
         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           name: name,
           phone: phone,
