@@ -1,3 +1,12 @@
+// ===== EmailJS (подставь свои ключи) =====
+const EMAILJS_PUBLIC_KEY = 'ztjUvgFFG22wBJeXf';
+const EMAILJS_SERVICE_ID = 'service_xqqezwp';
+const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
+
+if (typeof emailjs !== 'undefined') {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
 // ===== Звуки =====
 function playSound(type) {
   try {
@@ -6,6 +15,7 @@ function playSound(type) {
     const gain = ctx.createGain();
     osc.connect(gain);
     gain.connect(ctx.destination);
+
     if (type === 'click') {
       osc.frequency.value = 620;
       gain.gain.value = 0.04;
@@ -33,14 +43,7 @@ function playSound(type) {
     }
   } catch (e) {}
 }
-// Уведомление на почту
-const EMAILJS_PUBLIC_KEY = 'ztjUvgFFG22wBJeXf';
-const EMAILJS_SERVICE_ID = 'service_xqqezwp';
-const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
 
-if (typeof emailjs !== 'undefined') {
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-}
 // ===== Тема =====
 const body = document.body;
 const savedTheme = localStorage.getItem('theme') || 'light';
@@ -86,7 +89,7 @@ const logo = document.getElementById('logo');
 if (logo) {
   logo.addEventListener('click', e => {
     const href = logo.getAttribute('href');
-    if (href === '#' || href === '' || href === null) {
+    if (!href || href === '#') {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -94,7 +97,7 @@ if (logo) {
   });
 }
 
-// ===== Табы (только на главной) =====
+// ===== Табы =====
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     playSound('click');
@@ -153,6 +156,7 @@ if (modal) {
 
 // ===== Корзина =====
 let cart = [];
+
 const cartBtn = document.getElementById('cart-btn');
 const cartOverlay = document.getElementById('cart-overlay');
 const cartCloseBtn = document.getElementById('cart-close');
@@ -189,6 +193,7 @@ if (cartOverlay) {
 
 function updateCart() {
   if (!cartCount || !cartItems || !cartTotal) return;
+
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
   cartCount.textContent = totalQty;
 
@@ -200,9 +205,11 @@ function updateCart() {
 
   let total = 0;
   cartItems.innerHTML = '';
+
   cart.forEach((item, index) => {
     const priceNum = parseInt(String(item.price).replace(/\D/g, '')) || 0;
     total += priceNum * item.qty;
+
     const div = document.createElement('div');
     div.className = 'cart-item';
     div.innerHTML = `
@@ -215,6 +222,7 @@ function updateCart() {
     `;
     cartItems.appendChild(div);
   });
+
   cartTotal.textContent = total + ' сом';
 
   document.querySelectorAll('.cart-item-remove').forEach(btn => {
@@ -234,6 +242,7 @@ function addToCart(name, price, img, btn) {
   if (existing) existing.qty += 1;
   else cart.push({ name, price, img, qty: 1 });
   updateCart();
+
   if (btn) {
     btn.textContent = 'Добавлено ✓';
     btn.classList.add('added');
@@ -248,11 +257,13 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
   btn.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
+
     const card = this.closest('.card');
     if (card) {
       addToCart(card.dataset.name, card.dataset.price, card.dataset.img, this);
       return;
     }
+
     const title = document.getElementById('modal-title');
     const price = document.getElementById('modal-price');
     const img = document.getElementById('modal-img');
@@ -268,32 +279,69 @@ const receiptBody = document.getElementById('receipt-body');
 const receiptTotalEl = document.getElementById('receipt-total');
 const receiptClose = document.getElementById('receipt-close');
 
+// ===== Оформить заказ + письмо =====
 if (cartCheckout) {
-  cartCheckout.addEventListener('click', () => {
-    if (!cart.length) {
+  cartCheckout.addEventListener('click', async () => {
+    if (!cart || cart.length === 0) {
       alert('Корзина пуста');
       return;
     }
-    if (!receiptOverlay || !receiptBody || !receiptTotalEl) {
-      alert('Ошибка: блок чека не найден');
-      return;
-    }
-    playSound('success');
+
+    const name = prompt('Ваше имя:');
+    if (!name) return;
+    const phone = prompt('Телефон:');
+    if (!phone) return;
+
     let total = 0;
-    receiptBody.innerHTML = '';
-    cart.forEach(item => {
+    const orderLines = cart.map(item => {
       const priceNum = parseInt(String(item.price).replace(/\D/g, '')) || 0;
       const lineTotal = priceNum * (item.qty || 1);
       total += lineTotal;
-      const row = document.createElement('div');
-      row.className = 'receipt-item';
-      row.innerHTML = `<span>${item.name}${item.qty > 1 ? ' ×' + item.qty : ''}</span><span>${lineTotal} сом</span>`;
-      receiptBody.appendChild(row);
-    });
-    receiptTotalEl.textContent = total + ' сом';
-    closeCart();
-    receiptOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+      return `${item.name}${item.qty > 1 ? ' ×' + item.qty : ''} — ${lineTotal} сом`;
+    }).join('\n');
+
+    // Отправка на почту
+    try {
+      if (typeof emailjs !== 'undefined' &&
+          EMAILJS_PUBLIC_KEY !== 'ТВОЙ_PUBLIC_KEY') {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          name: name,
+          phone: phone,
+          order: orderLines,
+          total: total + ' сом'
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Не удалось отправить заказ на почту. Попробуйте ещё раз.');
+      return;
+    }
+
+    playSound('success');
+
+    // Показать чек
+    if (receiptBody && receiptTotalEl && receiptOverlay) {
+      receiptBody.innerHTML = '';
+      cart.forEach(item => {
+        const priceNum = parseInt(String(item.price).replace(/\D/g, '')) || 0;
+        const lineTotal = priceNum * (item.qty || 1);
+        const row = document.createElement('div');
+        row.className = 'receipt-item';
+        row.innerHTML = `
+          <span>${item.name}${item.qty > 1 ? ' ×' + item.qty : ''}</span>
+          <span>${lineTotal} сом</span>
+        `;
+        receiptBody.appendChild(row);
+      });
+      receiptTotalEl.textContent = total + ' сом';
+      closeCart();
+      receiptOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    } else {
+      closeCart();
+      alert('Заказ оформлен! Сумма: ' + total + ' сом');
+    }
+
     cart = [];
     updateCart();
   });
@@ -313,6 +361,7 @@ if (receiptClose && receiptOverlay) {
   });
 }
 
+// ===== Escape =====
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeModal();
