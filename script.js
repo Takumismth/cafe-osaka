@@ -1,4 +1,4 @@
-// ===== блок уведомления =====
+// ===== EmailJS =====
 const EMAILJS_PUBLIC_KEY = 'ztjUvgFFG22wBJeXf';
 const EMAILJS_SERVICE_ID = 'service_xqqezwp';
 const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
@@ -6,6 +6,7 @@ const EMAILJS_TEMPLATE_ID = 'template_ech78oc';
 if (typeof emailjs !== 'undefined') {
   emailjs.init(EMAILJS_PUBLIC_KEY);
 }
+
 // ===== Звуки =====
 function playSound(type) {
   try {
@@ -108,7 +109,7 @@ document.querySelectorAll('.tab').forEach(tab => {
   });
 });
 
-// ===== Модалка товара =====
+// ===== Модалка =====
 const modal = document.getElementById('modal');
 const modalClose = document.getElementById('modal-close');
 
@@ -278,7 +279,7 @@ const receiptBody = document.getElementById('receipt-body');
 const receiptTotalEl = document.getElementById('receipt-total');
 const receiptClose = document.getElementById('receipt-close');
 
-// ===== Оформить заказ + письмо =====
+// ===== Оформить заказ =====
 if (cartCheckout) {
   cartCheckout.addEventListener('click', async () => {
     if (!cart || cart.length === 0) {
@@ -299,26 +300,57 @@ if (cartCheckout) {
       return `${item.name}${item.qty > 1 ? ' ×' + item.qty : ''} — ${lineTotal} сом`;
     }).join('\n');
 
-    // Отправка на почту
+    // Письмо
     try {
-      if (typeof emailjs !== 'undefined' &&
-          EMAILJS_PUBLIC_KEY !== 'ztjUvgFFG22wBJeXf') {
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          name: name,
-          phone: phone,
-          order: orderLines,
-          total: total + ' сом'
-        });
+      if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS не загружен');
       }
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        name: name,
+        phone: phone,
+        order: orderLines,
+        total: total + ' сом'
+      });
     } catch (err) {
-      console.error(err);
-      alert('Не удалось отправить заказ на почту. Попробуйте ещё раз.');
+      console.error('EmailJS error:', err);
+      alert('Ошибка почты: ' + (err.text || err.message || 'неизвестно'));
       return;
     }
 
     playSound('success');
 
-    // Показать чек
+    // История заказов + бонусы
+    const user = JSON.parse(localStorage.getItem('osaka_user') || 'null');
+    const orderRecord = {
+      id: Date.now(),
+      date: new Date().toLocaleString('ru-RU'),
+      name: name,
+      phone: phone,
+      items: cart.map(item => ({
+        name: item.name,
+        qty: item.qty || 1,
+        price: item.price
+      })),
+      total: total,
+      email: user ? user.email : null
+    };
+    const allOrders = JSON.parse(localStorage.getItem('osaka_orders') || '[]');
+    allOrders.unshift(orderRecord);
+    localStorage.setItem('osaka_orders', JSON.stringify(allOrders));
+
+    if (user) {
+      const bonusAdd = Math.floor(total / 100);
+      user.bonuses = (user.bonuses || 0) + bonusAdd;
+      localStorage.setItem('osaka_user', JSON.stringify(user));
+      const users = JSON.parse(localStorage.getItem('osaka_users') || '[]');
+      const u = users.find(x => x.email === user.email);
+      if (u) {
+        u.bonuses = user.bonuses;
+        localStorage.setItem('osaka_users', JSON.stringify(users));
+      }
+    }
+
+    // Чек на экране
     if (receiptBody && receiptTotalEl && receiptOverlay) {
       receiptBody.innerHTML = '';
       cart.forEach(item => {
@@ -360,7 +392,6 @@ if (receiptClose && receiptOverlay) {
   });
 }
 
-// ===== Escape =====
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeModal();
